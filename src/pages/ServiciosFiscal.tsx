@@ -2,6 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { AnimatePresence, motion } from 'framer-motion';
 import { BadgeCheck, Building2, ChevronDown, FileText, Landmark, ShieldCheck, Stethoscope, Baby, HeartPulse } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const container = {
   hidden: {},
@@ -281,12 +282,12 @@ export default function ServiciosFiscal() {
                   >
                     WhatsApp directo
                   </a>
-                  <a
-                    href="#contacto"
+                  <Link
+                    to="/contacto"
                     className="w-full text-center py-3 rounded-none bg-[#1b3022] text-[#F8F5E9] text-[11px] font-bold uppercase tracking-[0.2em] border border-white/10 hover:brightness-110 transition"
                   >
                     Solicitar cita
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

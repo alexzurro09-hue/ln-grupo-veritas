@@ -26,11 +26,12 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import ContactHub from './components/ContactHub';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import ServiciosJuridico from './pages/ServiciosJuridico';
 import ServiciosFiscal from './pages/ServiciosFiscal';
 import ServiciosLaboral from './pages/ServiciosLaboral';
 import ServiciosContable from './pages/ServiciosContable';
+import Contacto from './pages/Contacto';
 
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -54,6 +55,7 @@ export default function App() {
         <Route path="/servicios-fiscal" element={<ServiciosFiscal />} />
         <Route path="/servicios-laboral" element={<ServiciosLaboral />} />
         <Route path="/servicios-contable" element={<ServiciosContable />} />
+        <Route path="/contacto" element={<Contacto />} />
       </Routes>
 
       <ContactHub />
@@ -62,6 +64,11 @@ export default function App() {
 }
 
 function AppHeader({ isScrolled }: { isScrolled: boolean }) {
+  const { pathname } = useLocation();
+  const isHome = pathname === '/';
+  const isServicios = pathname.startsWith('/servicios-');
+  const isContacto = pathname === '/contacto';
+
   return (
     <div
       className={`sticky top-0 z-[60] border-b border-veritas-green/10 backdrop-blur-[10px] transition-colors ${
@@ -95,11 +102,22 @@ function AppHeader({ isScrolled }: { isScrolled: boolean }) {
 
       <nav className="text-white h-[45px] flex items-center justify-center shadow-lg bg-veritas-green">
         <div className="max-w-7xl mx-auto w-full px-6 md:px-10 flex justify-center items-center h-full">
-          <div className="flex items-center gap-8 md:gap-16 font-medium uppercase text-[12px] tracking-[0.2em]">
-            <NavLink to="/" active>Inicio</NavLink>
-            <div className="group relative h-full flex items-center cursor-pointer opacity-70 hover:opacity-100 transition-opacity">
-              <span className="flex items-center gap-1">Servicios <ChevronDown size={12} /></span>
-              <div className="absolute top-[45px] left-1/2 -translate-x-1/2 w-64 bg-white text-veritas-green shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50 border-t-2 border-veritas-red">
+          <div className="flex items-stretch h-full gap-8 md:gap-16 font-medium uppercase text-[12px] tracking-[0.2em]">
+            <NavLink to="/" active={isHome}>Inicio</NavLink>
+            <div
+              className={`group relative h-full flex items-center cursor-pointer transition-all duration-300 ease-in-out tracking-widest w-[140px] justify-center ${
+                isServicios ? 'font-bold opacity-100' : 'font-normal opacity-80 hover:opacity-100 hover:font-bold'
+              }`}
+            >
+              <span className="flex items-center gap-1 relative">
+                Servicios <ChevronDown size={12} />
+                <span
+                  className={`absolute left-0 right-0 -bottom-[16px] h-px bg-white transition-opacity duration-300 ${
+                    isServicios ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                  }`}
+                />
+              </span>
+              <div className="absolute top-full left-1/2 -translate-x-1/2 w-64 bg-white text-veritas-green shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-200 z-50 border-t-2 border-veritas-red rounded-none pt-0">
                 <div className="flex flex-col py-2">
                   <DropdownLink to="/servicios-juridico">Jurídico</DropdownLink>
                   <DropdownLink to="/servicios-fiscal">Fiscal</DropdownLink>
@@ -109,12 +127,9 @@ function AppHeader({ isScrolled }: { isScrolled: boolean }) {
               </div>
             </div>
 
-            <a
-              href="#contacto"
-              className="hidden sm:inline-flex items-center px-4 py-2 border border-[#1b3022] text-white bg-transparent uppercase text-[11px] tracking-[0.22em] font-bold transition-colors hover:bg-white hover:text-[#1b3022] rounded-none"
-            >
+            <NavLink to="/contacto" active={isContacto}>
               Contacto
-            </a>
+            </NavLink>
           </div>
         </div>
       </nav>
@@ -207,32 +222,17 @@ function Home() {
           </div>
 
           <div className="p-8 flex-grow">
-            <div id="contacto" className="flex flex-col gap-3 lg:sticky lg:top-[160px]">
-              <h2 className="serif text-[18px] font-bold text-veritas-green">Solicite una Cita</h2>
-              <p className="text-[11px] text-[#777] mb-2 leading-relaxed">Calle de la Justicia 1, 28001 Madrid</p>
-
-              <form className="flex flex-col gap-3">
-                <input
-                  type="text"
-                  placeholder="Nombre Completo"
-                  className="border border-transparent border-b border-gray-300 py-2 px-1.5 text-[13px] outline-none bg-transparent focus:border-[#1b3022] transition-colors rounded-none"
-                />
-                <input
-                  type="email"
-                  placeholder="Correo Electrónico"
-                  className="border border-transparent border-b border-gray-300 py-2 px-1.5 text-[13px] outline-none bg-transparent focus:border-[#1b3022] transition-colors rounded-none"
-                />
-                <textarea
-                  placeholder="Su Mensaje"
-                  className="border border-transparent border-b border-gray-300 py-2 px-1.5 text-[13px] outline-none bg-transparent focus:border-[#1b3022] transition-colors h-[56px] resize-none rounded-none"
-                ></textarea>
-                <button
-                  type="submit"
-                  className="bg-veritas-green text-white py-3 px-4 mt-2 text-[11px] uppercase tracking-widest font-bold hover:bg-veritas-red transition-all cursor-pointer rounded-none border border-white/10"
-                >
-                  Enviar Solicitud
-                </button>
-              </form>
+            <div className="flex flex-col gap-3 lg:sticky lg:top-[160px]">
+              <h2 className="font-serif text-[18px] font-bold text-veritas-green">Contacto</h2>
+              <p className="text-[11px] text-[#777] mb-2 leading-relaxed">
+                Camino de Alcalá 52, 28816 Camarma de Esteruelas (Madrid)
+              </p>
+              <Link
+                to="/contacto"
+                className="inline-flex items-center justify-center bg-veritas-green text-white py-3 px-4 text-[11px] uppercase tracking-[0.25em] font-bold hover:bg-veritas-red transition-all duration-300 ease-in-out cursor-pointer rounded-none border border-white/10"
+              >
+                Solicitar una cita
+              </Link>
             </div>
           </div>
         </aside>
@@ -277,10 +277,17 @@ function NavLink({ to, children, active = false }: { to: string; children: React
   return (
     <Link
       to={to}
-      className={`px-2 h-full flex items-center text-[12px] font-medium uppercase tracking-[0.15em] transition-all duration-300 relative group
-        ${active ? 'border-b border-white' : 'opacity-70 hover:opacity-100'}`}
+      className={`h-full flex items-center justify-center w-[140px] uppercase text-[12px] tracking-widest transition-all duration-300 ease-in-out relative group
+        ${active ? 'font-bold opacity-100' : 'font-normal opacity-80 hover:opacity-100 hover:font-bold'}`}
     >
-      {children}
+      <span className="relative">
+        {children}
+        <span
+          className={`absolute left-0 right-0 -bottom-[16px] h-px bg-white transition-opacity duration-300 ${
+            active ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+          }`}
+        />
+      </span>
     </Link>
   );
 }
@@ -309,9 +316,12 @@ function ServiceCard({ icon, title, description }: { icon: React.ReactNode; titl
       <p className="text-gray-500 font-light text-sm leading-relaxed mb-6">
         {description}
       </p>
-      <a href="#contacto" className="inline-flex items-center text-[10px] font-bold uppercase tracking-[0.2em] text-veritas-red hover:tracking-[0.3em] transition-all">
+      <Link
+        to="/contacto"
+        className="inline-flex items-center text-[10px] font-bold uppercase tracking-[0.2em] text-veritas-red hover:tracking-[0.3em] transition-all"
+      >
         Consultar <ArrowRight size={14} className="ml-2" />
-      </a>
+      </Link>
     </motion.div>
   );
 }

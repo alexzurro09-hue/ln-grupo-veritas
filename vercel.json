@@ -1,0 +1,8 @@
+{
+  "buildCommand": "cd lnveritasabogados && npm run build",
+  "outputDirectory": "lnveritasabogados/dist",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
+

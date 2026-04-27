@@ -1,12 +1,18 @@
+'use client';
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import type { LucideIcon } from 'lucide-react';
 import { Check } from 'lucide-react';
+import Link from 'next/link';
+import { titleToSlug } from '../content/services';
+
+export type LegalServiceItem = string | { label: string; href: string };
 
 type Props = {
   title: string;
   Icon: LucideIcon;
-  items: string[];
+  items: LegalServiceItem[];
   className?: string;
 };
 
@@ -33,14 +39,29 @@ export default function LegalServiceCard({ title, Icon, items, className }: Prop
       </div>
 
       <ul className="mt-5 space-y-2.5 list-none text-[13px] leading-relaxed text-[#333] font-sans">
-        {items.map((item) => (
-          <li key={item} className="flex gap-2.5">
+        {items.map((item) => {
+          const label = typeof item === 'string' ? item : item.label;
+          const href = typeof item === 'string' ? undefined : item.href;
+          const key = href ?? titleToSlug(label);
+
+          return (
+            <li key={key} className="flex gap-2.5">
             <span className="mt-[2px] text-veritas-red">
               <Check size={16} strokeWidth={2.2} />
             </span>
-            <span>{item}</span>
+            {href ? (
+              <Link
+                href={href}
+                className="hover:text-veritas-green transition-colors underline-offset-4 hover:underline"
+              >
+                {label}
+              </Link>
+            ) : (
+              <span>{label}</span>
+            )}
           </li>
-        ))}
+          );
+        })}
       </ul>
     </motion.div>
   );

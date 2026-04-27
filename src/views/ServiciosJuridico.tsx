@@ -1,8 +1,10 @@
+'use client';
+
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Briefcase, Scale, Gavel, Users, Landmark } from 'lucide-react';
 import LegalServiceCard from '../components/LegalServiceCard';
+import { titleToSlug } from '../content/services';
 
 const container = {
   hidden: {},
@@ -16,20 +18,12 @@ const container = {
 
 const item = {
   hidden: { opacity: 0, y: 14 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.2, 0.9, 0.2, 1] } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.2, 0.9, 0.2, 1] as [number, number, number, number] } },
 };
 
 export default function ServiciosJuridico() {
   return (
     <>
-      <Helmet>
-        <title>Servicios Jurídicos en Madrid | LN Grupo Veritas</title>
-        <meta
-          name="description"
-          content="Servicios jurídicos en Madrid. Más de 30 años de trayectoria en asesoría legal para empresas y particulares: civil, mercantil, penal, laboral y contencioso."
-        />
-      </Helmet>
-
       <div className="bg-[#f9f7f2]">
         <div className="max-w-7xl mx-auto px-6 md:px-10 py-12 md:py-16">
           <div className="max-w-3xl">
@@ -57,10 +51,19 @@ export default function ServiciosJuridico() {
                 title="Área Civil"
                 Icon={Scale}
                 items={[
-                  'Contratos, reclamaciones y responsabilidad civil',
-                  'Arrendamientos, propiedad horizontal y comunidad de bienes',
-                  'Sucesiones, herencias y planificación patrimonial',
-                  'Reclamación de cantidad y procedimientos declarativos',
+                  {
+                    label: 'Contratos, reclamaciones y responsabilidad civil',
+                    href: `/servicios/juridico/${titleToSlug('Contratos y Reclamaciones')}`,
+                  },
+                  {
+                    label: 'Arrendamientos, propiedad horizontal y comunidad de bienes',
+                    href: `/servicios/juridico/${titleToSlug('Arrendamientos y Propiedad Horizontal')}`,
+                  },
+                  {
+                    label: 'Sucesiones, herencias y planificación patrimonial',
+                    href: `/servicios/juridico/${titleToSlug('Herencias y Planificación Patrimonial')}`,
+                  },
+                  { label: 'Reclamación de cantidad y procedimientos declarativos', href: `/servicios/juridico/${titleToSlug('Reclamación de Cantidad')}` },
                 ]}
                 className="h-full"
               />
@@ -71,9 +74,12 @@ export default function ServiciosJuridico() {
                 title="Área Mercantil"
                 Icon={Briefcase}
                 items={[
-                  'Constitución de sociedades y pactos de socios',
+                  {
+                    label: 'Constitución de sociedades y pactos de socios',
+                    href: `/servicios/juridico/${titleToSlug('Constitución de Sociedades y Pactos de Socios')}`,
+                  },
                   'Reestructuración, gobierno corporativo y asesoría recurrente',
-                  'Contratación mercantil y negociación',
+                  { label: 'Contratación mercantil y negociación', href: `/servicios/juridico/${titleToSlug('Contratación Mercantil y Negociación')}` },
                   'Conflictos societarios y defensa de administradores',
                 ]}
                 className="h-full"
@@ -85,7 +91,7 @@ export default function ServiciosJuridico() {
                 title="Área Penal"
                 Icon={Gavel}
                 items={[
-                  'Defensa y acusación particular',
+                  { label: 'Defensa y acusación particular', href: `/servicios/juridico/${titleToSlug('Defensa y Acusación Particular')}` },
                   'Asistencia letrada en diligencias urgentes',
                   'Delitos económicos y patrimoniales',
                   'Estrategia procesal y negociación',
@@ -99,7 +105,7 @@ export default function ServiciosJuridico() {
                 title="Área Laboral"
                 Icon={Users}
                 items={[
-                  'Contratación, despidos y sanciones',
+                  { label: 'Contratación, despidos y sanciones', href: `/servicios/juridico/${titleToSlug('Contratación, Despidos y Sanciones')}` },
                   'Reclamaciones de cantidad y salarios',
                   'Asesoría en RRHH y prevención de conflictos',
                   'Representación en SMAC y jurisdicción social',
@@ -113,7 +119,7 @@ export default function ServiciosJuridico() {
                 title="Área Contencioso"
                 Icon={Landmark}
                 items={[
-                  'Recursos administrativos y reclamaciones',
+                  { label: 'Recursos administrativos y reclamaciones', href: `/servicios/juridico/${titleToSlug('Recursos y Defensa Contencioso-Administrativa')}` },
                   'Sanciones, licencias y procedimientos ante la Administración',
                   'Defensa contencioso-administrativa',
                   'Estrategia y acompañamiento documental',

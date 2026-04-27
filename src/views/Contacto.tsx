@@ -1,11 +1,11 @@
+'use client';
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, ExternalLink } from 'lucide-react';
 
 const ADDRESS = 'Camino de Alcalá 52, 28816 Camarma de Esteruelas (Madrid)';
 const HOURS = 'Lunes a Jueves: 09:00 - 18:00 | Viernes: 09:00 - 15:00';
-const PLUS_CODE = 'GJWF+J4 Camarma de Esteruelas';
-const MAP_COORDS = { lat: 40.549216, lng: -3.378822 };
 const BUSINESS_QUERY = 'Camarlex Veritas Abogados, Camarma de Esteruelas';
 
 export default function Contacto() {
@@ -84,12 +84,7 @@ export default function Contacto() {
                     Ubicación
                   </div>
                   <p className="mt-2 text-[12px] text-[#777] leading-relaxed max-w-md">{ADDRESS}</p>
-                  <p className="mt-2 text-[11px] text-[#777] leading-relaxed">
-                    <span className="uppercase tracking-[0.2em] text-veritas-green/60 font-bold">Plus Code:</span>{' '}
-                    {PLUS_CODE}
-                  </p>
-
-                  <div className="mt-5 h-[240px] border border-gray-200 rounded-none bg-white relative overflow-hidden">
+                  <div className="mt-4 h-[240px] border border-gray-200 rounded-none bg-white relative overflow-hidden">
                     <iframe
                       title="Mapa - Camarlex Veritas Abogados"
                       src={embedSrc}

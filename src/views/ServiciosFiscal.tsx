@@ -1,8 +1,9 @@
+'use client';
+
 import React, { useMemo, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { AnimatePresence, motion } from 'framer-motion';
 import { BadgeCheck, Building2, ChevronDown, FileText, Landmark, ShieldCheck, Stethoscope, Baby, HeartPulse } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 const container = {
   hidden: {},
@@ -16,7 +17,7 @@ const container = {
 
 const item = {
   hidden: { opacity: 0, y: 14 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.2, 0.9, 0.2, 1] } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.2, 0.9, 0.2, 1] as [number, number, number, number] } },
 };
 
 function Pill({ children }: { children: React.ReactNode }) {
@@ -51,14 +52,6 @@ export default function ServiciosFiscal() {
 
   return (
     <>
-      <Helmet>
-        <title>Servicios Fiscales en Madrid | LN Grupo Veritas</title>
-        <meta
-          name="description"
-          content="Estrategia y gestión fiscal para empresas y autónomos en Madrid. Cumplimiento AEAT, RETA, licencias y representación ante inspección."
-        />
-      </Helmet>
-
       <div className="bg-[#f9f7f2]">
         <div className="max-w-7xl mx-auto px-6 md:px-10 py-12 md:py-16">
           {/* Hero */}
@@ -283,7 +276,7 @@ export default function ServiciosFiscal() {
                     WhatsApp directo
                   </a>
                   <Link
-                    to="/contacto"
+                    href="/contacto"
                     className="w-full text-center py-3 rounded-none bg-[#1b3022] text-[#F8F5E9] text-[11px] font-bold uppercase tracking-[0.2em] border border-white/10 hover:brightness-110 transition"
                   >
                     Solicitar cita

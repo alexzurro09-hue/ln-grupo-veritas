@@ -1,5 +1,6 @@
+'use client';
+
 import React, { useMemo, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
   BadgeCheck,
@@ -24,7 +25,7 @@ const container = {
 
 const item = {
   hidden: { opacity: 0, y: 14 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.2, 0.9, 0.2, 1] } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.2, 0.9, 0.2, 1] as [number, number, number, number] } },
 };
 
 function Pill({ children }: { children: React.ReactNode }) {
@@ -56,14 +57,6 @@ export default function ServiciosContable() {
 
   return (
     <>
-      <Helmet>
-        <title>Servicios Contables en Madrid | LN Grupo Veritas</title>
-        <meta
-          name="description"
-          content="Contabilidad estratégica y control financiero en Madrid: balances, calendario tributario, cumplimiento mercantil y análisis trimestral para la toma de decisiones."
-        />
-      </Helmet>
-
       <div className="bg-[#f9f7f2]">
         <div className="max-w-7xl mx-auto px-6 md:px-10 py-12 md:py-16">
           {/* Hero */}

@@ -4,6 +4,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { 
   Phone, 
   Mail, 
@@ -32,6 +33,14 @@ import ServiciosFiscal from './pages/ServiciosFiscal';
 import ServiciosLaboral from './pages/ServiciosLaboral';
 import ServiciosContable from './pages/ServiciosContable';
 import Contacto from './pages/Contacto';
+import ServicioDetalle from './pages/ServicioDetalle';
+
+const INSTITUTIONAL_PHONE = '918 86 66 94';
+const INSTITUTIONAL_PHONE_HREF = 'tel:918866694';
+const INSTITUTIONAL_EMAIL = 'info@lngrupoveritas.es';
+const INSTITUTIONAL_EMAIL_HREF = 'mailto:info@lngrupoveritas.es';
+const INSTITUTIONAL_ADDRESS = 'Camino de Alcalá 52, 28816 Camarma de Esteruelas (Madrid)';
+const INSTITUTIONAL_HOURS = 'Lunes a Jueves: 09:00 - 18:00 | Viernes: 09:00 - 15:00';
 
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -47,6 +56,13 @@ export default function App() {
 
   return (
     <div className="min-h-screen selection:bg-veritas-red selection:text-white">
+      <Helmet>
+        <title>LN Grupo Veritas | Abogados y Asesores</title>
+        <meta
+          name="description"
+          content="Despacho de abogados con 30 años de trayectoria. Especialistas en asesoría jurídica y fiscal en Madrid."
+        />
+      </Helmet>
       <AppHeader isScrolled={isScrolled} />
 
       <Routes>
@@ -55,6 +71,11 @@ export default function App() {
         <Route path="/servicios-fiscal" element={<ServiciosFiscal />} />
         <Route path="/servicios-laboral" element={<ServiciosLaboral />} />
         <Route path="/servicios-contable" element={<ServiciosContable />} />
+        <Route path="/servicios/juridico" element={<ServiciosJuridico />} />
+        <Route path="/servicios/fiscal" element={<ServiciosFiscal />} />
+        <Route path="/servicios/laboral" element={<ServiciosLaboral />} />
+        <Route path="/servicios/contable" element={<ServiciosContable />} />
+        <Route path="/servicios/:category/:service" element={<ServicioDetalle />} />
         <Route path="/contacto" element={<Contacto />} />
       </Routes>
 
@@ -200,10 +221,30 @@ function Home() {
           </section>
 
           <section className="bg-white grid grid-cols-1 md:grid-cols-4 p-10 gap-5">
-            <HighlightCard Icon={Scale} title="Jurídico" desc="Asesoramiento legal experto en todas las ramas del derecho." />
-            <HighlightCard Icon={ShieldCheck} title="Fiscal" desc="Optimización de su carga impositiva y cumplimiento tributario." />
-            <HighlightCard Icon={Users} title="Laboral" desc="Gestión integral de recursos humanos y relaciones laborales." />
-            <HighlightCard Icon={BarChart3} title="Contable" desc="Control exhaustivo de su contabilidad y finanzas corporativas." />
+            <HighlightCard
+              href="/servicios/juridico"
+              Icon={Scale}
+              title="Jurídico"
+              desc="Asesoramiento legal experto en todas las ramas del derecho."
+            />
+            <HighlightCard
+              href="/servicios/fiscal"
+              Icon={ShieldCheck}
+              title="Fiscal"
+              desc="Optimización de su carga impositiva y cumplimiento tributario."
+            />
+            <HighlightCard
+              href="/servicios/laboral"
+              Icon={Users}
+              title="Laboral"
+              desc="Gestión integral de recursos humanos y relaciones laborales."
+            />
+            <HighlightCard
+              href="/servicios/contable"
+              Icon={BarChart3}
+              title="Contable"
+              desc="Control exhaustivo de su contabilidad y finanzas corporativas."
+            />
           </section>
         </div>
 
@@ -223,13 +264,39 @@ function Home() {
 
           <div className="p-8 flex-grow">
             <div className="flex flex-col gap-3 lg:sticky lg:top-[160px]">
-              <h2 className="font-serif text-[18px] font-bold text-veritas-green">Contacto</h2>
-              <p className="text-[11px] text-[#777] mb-2 leading-relaxed">
-                Camino de Alcalá 52, 28816 Camarma de Esteruelas (Madrid)
-              </p>
+              <h2 className="font-serif text-[18px] font-bold text-veritas-green">Información Institucional</h2>
+
+              <div className="mt-6 space-y-6 text-[13px] text-veritas-gray">
+                <InstitutionalRow
+                  icon={<Phone size={18} strokeWidth={1.5} />}
+                  label="Teléfono"
+                  value={<a className="hover:text-veritas-red transition-colors" href={INSTITUTIONAL_PHONE_HREF}>{INSTITUTIONAL_PHONE}</a>}
+                />
+                <InstitutionalRow
+                  icon={<Mail size={18} strokeWidth={1.5} />}
+                  label="Email"
+                  value={<a className="hover:text-veritas-red transition-colors break-words" href={INSTITUTIONAL_EMAIL_HREF}>{INSTITUTIONAL_EMAIL}</a>}
+                />
+                <InstitutionalRow
+                  icon={<MapPin size={18} strokeWidth={1.5} />}
+                  label="Dirección"
+                  value={<span className="leading-relaxed">{INSTITUTIONAL_ADDRESS}</span>}
+                />
+                <InstitutionalRow
+                  icon={<Clock size={18} strokeWidth={1.5} />}
+                  label="Horario"
+                  value={
+                    <span className="flex flex-col leading-relaxed">
+                      <span>Lunes a Jueves: 09:00 - 18:00</span>
+                      <span>Viernes: 09:00 - 15:00</span>
+                    </span>
+                  }
+                />
+              </div>
+
               <Link
                 to="/contacto"
-                className="inline-flex items-center justify-center bg-veritas-green text-white py-3 px-4 text-[11px] uppercase tracking-[0.25em] font-bold hover:bg-veritas-red transition-all duration-300 ease-in-out cursor-pointer rounded-none border border-white/10"
+                className="mt-8 inline-flex items-center justify-center bg-veritas-green text-white py-3 px-4 text-[11px] uppercase tracking-[0.25em] font-bold hover:bg-veritas-red transition-all duration-300 ease-in-out cursor-pointer rounded-none border border-white/10"
               >
                 Solicitar una cita
               </Link>
@@ -254,22 +321,27 @@ function Home() {
 }
 
 function HighlightCard({
+  href,
   Icon,
   title,
   desc,
 }: {
+  href: string;
   Icon: React.ComponentType<{ size?: number; strokeWidth?: number; className?: string }>;
   title: string;
   desc: string;
 }) {
   return (
-    <div className="group p-6 text-center bg-white border border-stone-100 rounded-none shadow-[0_10px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_14px_30px_rgba(0,0,0,0.10)] transition-all h-full flex flex-col justify-center">
+    <Link
+      to={href}
+      className="group p-6 text-center bg-white border border-stone-100 rounded-none shadow-[0_10px_24px_rgba(0,0,0,0.06)] hover:shadow-md transition-all h-full flex flex-col justify-center cursor-pointer hover:border-veritas-green/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-veritas-green/30"
+    >
       <div className="flex justify-center mb-4 text-[#1b3022] group-hover:text-veritas-red transition-colors">
         <Icon size={36} strokeWidth={1.5} />
       </div>
       <h3 className="font-serif text-[14px] font-semibold text-veritas-green mb-1">{title}</h3>
       <p className="text-[11px] text-[#666] leading-relaxed">{desc}</p>
-    </div>
+    </Link>
   );
 }
 
@@ -347,5 +419,27 @@ function SocialLink({ icon }: { icon: React.ReactNode }) {
     <a href="#" className="p-3 bg-white/5 rounded-none border border-white/10 hover:bg-white/20 hover:text-white transition-all">
       {icon}
     </a>
+  );
+}
+
+function InstitutionalRow({
+  icon,
+  label,
+  value,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  value: React.ReactNode;
+}) {
+  return (
+    <div className="flex items-start gap-4">
+      <div className="text-veritas-green mt-0.5">{icon}</div>
+      <div>
+        <div className="text-[10px] uppercase tracking-widest font-bold text-veritas-green/70 font-sans">
+          {label}
+        </div>
+        <div className="mt-1 leading-relaxed">{value}</div>
+      </div>
+    </div>
   );
 }

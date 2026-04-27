@@ -4,6 +4,9 @@ node_modules/
 dist/
 **/dist/
 
+.next/
+**/.next/
+
 .DS_Store
 
 .env

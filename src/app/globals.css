@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter, "Inter", "Helvetica Neue", Arial, sans-serif);
+  --font-serif: var(--font-playfair, "Playfair Display", "Georgia", serif);
+
+  --color-veritas-green: #1B3022;
+  --color-veritas-cream: #F8F5E9;
+  --color-veritas-red: #A62626;
+  --color-veritas-gray: #4A4A4A;
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-veritas-cream text-veritas-green;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}

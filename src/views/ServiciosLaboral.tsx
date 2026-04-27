@@ -1,5 +1,6 @@
+'use client';
+
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import {
   BadgeCheck,
@@ -26,7 +27,7 @@ const container = {
 
 const item = {
   hidden: { opacity: 0, y: 14 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.2, 0.9, 0.2, 1] } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.2, 0.9, 0.2, 1] as [number, number, number, number] } },
 };
 
 function Bullet({ children }: { children: React.ReactNode }) {
@@ -85,14 +86,6 @@ function Block({
 export default function ServiciosLaboral() {
   return (
     <>
-      <Helmet>
-        <title>Servicios Laborales en Madrid | LN Grupo Veritas</title>
-        <meta
-          name="description"
-          content="Gestión laboral para empresas y particulares en Madrid: nóminas, cotizaciones, Sistema RED, DELTA, contratación, bajas, despidos y defensa ante inspección."
-        />
-      </Helmet>
-
       <div className="bg-[#f9f7f2]">
         <div className="max-w-7xl mx-auto px-6 md:px-10 py-12 md:py-16">
           {/* Hero */}

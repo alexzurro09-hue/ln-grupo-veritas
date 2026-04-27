@@ -2,7 +2,7 @@
 
 import React, { useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { BadgeCheck, Building2, ChevronDown, FileText, Landmark, ShieldCheck, Stethoscope, Baby, HeartPulse } from 'lucide-react';
+import { Building2, ChevronDown, ChevronRight, FileText, Landmark, ShieldCheck } from 'lucide-react';
 import Link from 'next/link';
 
 const container = {
@@ -25,6 +25,31 @@ function Pill({ children }: { children: React.ReactNode }) {
     <span className="inline-flex items-center px-3 py-1 rounded-none bg-gray-100 text-[#2f2f2f] text-[11px] font-medium tracking-wide border border-stone-200">
       {children}
     </span>
+  );
+}
+
+function InteractiveRow({ href, children }: { href?: string; children: React.ReactNode }) {
+  const className =
+    'group flex items-center justify-between gap-4 py-3 px-4 rounded-md hover:bg-stone-100/50 transition-all duration-200';
+
+  const content = (
+    <>
+      <span className="transition-transform duration-200 group-hover:translate-x-1">{children}</span>
+      <ChevronRight
+        size={16}
+        className="shrink-0 text-[#8b4c39] transition-colors duration-200 group-hover:text-[#a03621]"
+      />
+    </>
+  );
+
+  if (!href) {
+    return <div className={className}>{content}</div>;
+  }
+
+  return (
+    <Link href={href} className={className}>
+      {content}
+    </Link>
   );
 }
 
@@ -63,30 +88,53 @@ export default function ServiciosFiscal() {
               Estrategia y Gestión Fiscal
             </h2>
             <p className="mt-4 text-[14px] md:text-[15px] leading-relaxed text-[#3b3b3b] font-sans">
-              Mucho más que presentación de impuestos: <span className="font-semibold text-[#1b3022]">blindaje tributario</span> para
-              empresas y autónomos.
+              Mucho más que presentación de impuestos: blindaje tributario y consultoría estratégica para empresas y autónomos en Alcalá
+              de Henares. Más de 30 años de rigor contable y fiscal.
             </p>
           </div>
 
           <div className="mt-10 md:mt-12 grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-6 lg:gap-8 items-start">
             {/* Bento content */}
             <motion.div variants={container} initial="hidden" animate="show" className="grid grid-cols-1 md:grid-cols-6 gap-4 md:gap-5">
-              {/* Block 1: AEAT core (bigger) */}
+              {/* Card 1: Gestión tributaria */}
               <motion.section variants={item} className="md:col-span-6 bg-white rounded-none border border-stone-100 shadow-[0_10px_24px_rgba(0,0,0,0.08)] hover:shadow-[0_14px_30px_rgba(0,0,0,0.10)] transition-shadow p-6 md:p-7">
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <h3 className="font-serif font-bold text-[18px] md:text-[20px] text-[#1b3022]">
-                      Cumplimiento Tributario (AEAT)
+                      Gestión Tributaria y Cumplimiento (AEAT)
                     </h3>
                     <p className="mt-2 text-[13px] text-[#333] font-sans leading-relaxed max-w-3xl">
-                      Presentación, revisión y control de obligaciones periódicas, informativas y censales. Orden, calendario y criterio para
-                      evitar riesgos y mejorar la toma de decisiones.
+                      Cumplimiento con criterio y planificación para reducir riesgos, anticipar inspecciones y mejorar la toma de decisiones
+                      con datos ordenados.
                     </p>
                   </div>
                   <div className="text-[#1b3022]/80">
                     <FileText size={22} strokeWidth={1.6} />
                   </div>
                 </div>
+
+                <ul className="mt-5 list-none text-[13px] leading-relaxed text-[#333] font-sans divide-y divide-stone-100">
+                  <li>
+                    <InteractiveRow href="/servicios/fiscal/planificacion-fiscal-estrategica">
+                      Planificación fiscal estratégica
+                    </InteractiveRow>
+                  </li>
+                  <li>
+                    <InteractiveRow href="/servicios/fiscal/impuesto-de-sociedades-y-cuentas-anuales">
+                      Impuesto de Sociedades y Cuentas Anuales
+                    </InteractiveRow>
+                  </li>
+                  <li>
+                    <InteractiveRow href="/servicios/fiscal/iva-y-regimenes-especiales">
+                      IVA y regímenes especiales
+                    </InteractiveRow>
+                  </li>
+                  <li>
+                    <InteractiveRow href="/servicios/fiscal/declaraciones-informativas-y-censales">
+                      Declaraciones informativas y censales
+                    </InteractiveRow>
+                  </li>
+                </ul>
 
                 <div className="mt-5 flex flex-wrap gap-2">
                   {aeatModels.map((m) => (
@@ -97,7 +145,7 @@ export default function ServiciosFiscal() {
                 </div>
               </motion.section>
 
-              {/* Block 2: Autónomos */}
+              {/* Card 2: Autónomos */}
               <motion.section variants={item} className="md:col-span-3 bg-white rounded-none border border-stone-100 shadow-[0_10px_24px_rgba(0,0,0,0.08)] hover:shadow-[0_14px_30px_rgba(0,0,0,0.10)] transition-shadow p-6 md:p-7">
                 <div className="flex items-start justify-between gap-4">
                   <div>
@@ -105,7 +153,7 @@ export default function ServiciosFiscal() {
                       Gestión Integral del Autónomo
                     </h3>
                     <p className="mt-2 text-[13px] text-[#333] font-sans leading-relaxed">
-                      Alta/baja, variaciones, cobertura y acompañamiento en incidencias de vida laboral.
+                      Acompañamiento fiscal y de gestión para empezar bien, mantener orden y tomar decisiones con tranquilidad.
                     </p>
                   </div>
                   <div className="text-[#1b3022]/80">
@@ -113,35 +161,39 @@ export default function ServiciosFiscal() {
                   </div>
                 </div>
 
-                <ul className="mt-5 space-y-2.5 list-none text-[13px] leading-relaxed text-[#333] font-sans">
-                  <li className="flex gap-2.5">
-                    <span className="mt-[2px] text-veritas-red"><BadgeCheck size={16} strokeWidth={2.2} /></span>
-                    <span>Altas, bajas y variaciones en RETA</span>
+                <ul className="mt-5 list-none text-[13px] leading-relaxed text-[#333] font-sans divide-y divide-stone-100">
+                  <li>
+                    <InteractiveRow href="/servicios/fiscal/alta-y-asesoramiento-inicial-a-emprendedores">
+                      Alta y asesoramiento inicial a emprendedores
+                    </InteractiveRow>
                   </li>
-                  <li className="flex gap-2.5">
-                    <span className="mt-[2px] text-veritas-red"><HeartPulse size={16} strokeWidth={2.2} /></span>
-                    <span>Bajas, contingencias y seguimiento documental</span>
+                  <li>
+                    <InteractiveRow href="/servicios/fiscal/gestion-de-reta-y-variaciones-de-actividad">
+                      Gestión de RETA y variaciones de actividad
+                    </InteractiveRow>
                   </li>
-                  <li className="flex gap-2.5">
-                    <span className="mt-[2px] text-veritas-red"><Baby size={16} strokeWidth={2.2} /></span>
-                    <span>Maternidad / paternidad y prestaciones</span>
+                  <li>
+                    <InteractiveRow href="/servicios/fiscal/subvenciones-y-bonificaciones">
+                      Subvenciones y bonificaciones
+                    </InteractiveRow>
                   </li>
-                  <li className="flex gap-2.5">
-                    <span className="mt-[2px] text-veritas-red"><Stethoscope size={16} strokeWidth={2.2} /></span>
-                    <span>Jubilación y planificación de cotización</span>
+                  <li>
+                    <InteractiveRow href="/servicios/fiscal/prestaciones-y-planificacion-de-jubilacion">
+                      Prestaciones y planificación de jubilación
+                    </InteractiveRow>
                   </li>
                 </ul>
               </motion.section>
 
-              {/* Block 3: Organismos & Ayuntamientos */}
+              {/* Card 3: Procedimientos y tributos locales */}
               <motion.section variants={item} className="md:col-span-3 bg-white rounded-none border border-stone-100 shadow-[0_10px_24px_rgba(0,0,0,0.08)] hover:shadow-[0_14px_30px_rgba(0,0,0,0.10)] transition-shadow p-6 md:p-7">
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <h3 className="font-serif font-bold text-[18px] md:text-[20px] text-[#1b3022]">
-                      Gestión Administrativa y Licencias
+                      Procedimientos y Tributos Locales
                     </h3>
                     <p className="mt-2 text-[13px] text-[#333] font-sans leading-relaxed">
-                      Trámites con organismos, ayuntamientos y administración local para que la operativa no se detenga.
+                      Trámites con organismos, ayuntamientos y administración local: defensa técnica y estrategia para asegurar que su operativa no se detenga.
                     </p>
                   </div>
                   <div className="text-[#1b3022]/80">
@@ -149,22 +201,26 @@ export default function ServiciosFiscal() {
                   </div>
                 </div>
 
-                <ul className="mt-5 space-y-2.5 list-none text-[13px] leading-relaxed text-[#333] font-sans">
-                  <li className="flex gap-2.5">
-                    <span className="mt-[2px] text-veritas-red"><BadgeCheck size={16} strokeWidth={2.2} /></span>
-                    <span>Licencias, comunicaciones y registros municipales</span>
+                <ul className="mt-5 list-none text-[13px] leading-relaxed text-[#333] font-sans divide-y divide-stone-100">
+                  <li>
+                    <InteractiveRow href="/servicios/fiscal/licencias-comunicaciones-y-registros-municipales">
+                      Licencias, comunicaciones y registros municipales
+                    </InteractiveRow>
                   </li>
-                  <li className="flex gap-2.5">
-                    <span className="mt-[2px] text-veritas-red"><BadgeCheck size={16} strokeWidth={2.2} /></span>
-                    <span>IBI y gestión de tributos locales</span>
+                  <li>
+                    <InteractiveRow href="/servicios/fiscal/gestion-de-tributos-locales">
+                      Gestión de tributos locales (IBI, Plusvalías)
+                    </InteractiveRow>
                   </li>
-                  <li className="flex gap-2.5">
-                    <span className="mt-[2px] text-veritas-red"><BadgeCheck size={16} strokeWidth={2.2} /></span>
-                    <span>Presentación de escritos y seguimiento de expedientes</span>
+                  <li>
+                    <InteractiveRow href="/servicios/fiscal/presentacion-de-escritos-y-seguimiento-de-expedientes">
+                      Presentación de escritos y seguimiento de expedientes
+                    </InteractiveRow>
                   </li>
-                  <li className="flex gap-2.5">
-                    <span className="mt-[2px] text-veritas-red"><BadgeCheck size={16} strokeWidth={2.2} /></span>
-                    <span>Gestión documental y requerimientos</span>
+                  <li>
+                    <InteractiveRow href="/servicios/fiscal/gestion-de-requerimientos-y-control-documental">
+                      Gestión de requerimientos y control documental
+                    </InteractiveRow>
                   </li>
                 </ul>
               </motion.section>
@@ -172,7 +228,7 @@ export default function ServiciosFiscal() {
               {/* Block 4: Premium - Inspection representation */}
               <motion.section
                 variants={item}
-                className="md:col-span-6 rounded-none border border-[#c7b07a]/45 bg-[#f3efe3] shadow-[0_10px_24px_rgba(0,0,0,0.08)] hover:shadow-[0_14px_30px_rgba(0,0,0,0.10)] transition-shadow p-6 md:p-7"
+                className="md:col-span-6 rounded-none border border-veritas-green/10 bg-[#f9f7f2] shadow-[0_10px_24px_rgba(0,0,0,0.08)] hover:shadow-[0_14px_30px_rgba(0,0,0,0.10)] transition-shadow p-6 md:p-7"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
@@ -189,19 +245,28 @@ export default function ServiciosFiscal() {
                   </div>
                 </div>
 
-                <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-3">
-                  {[
-                    'Análisis de riesgos y trazabilidad documental',
-                    'Preparación de alegaciones y recursos',
-                    'Interlocución con AEAT y coordinación de respuestas',
-                    'Plan de regularización y minimización de impacto',
-                  ].map((t) => (
-                    <div key={t} className="flex gap-2.5 items-start text-[13px] text-[#333] font-sans">
-                      <span className="mt-[2px] text-veritas-red"><BadgeCheck size={16} strokeWidth={2.2} /></span>
-                      <span>{t}</span>
-                    </div>
-                  ))}
-                </div>
+                <ul className="mt-5 list-none text-[13px] leading-relaxed text-[#333] font-sans divide-y divide-stone-100">
+                  <li>
+                    <InteractiveRow href="/servicios/fiscal/analisis-de-risgos-y-trazabilidad-documental">
+                      Análisis de riesgos y trazabilidad documental
+                    </InteractiveRow>
+                  </li>
+                  <li>
+                    <InteractiveRow href="/servicios/fiscal/preparacion-de-alegaciones-y-recursos">
+                      Preparación de alegaciones y recursos
+                    </InteractiveRow>
+                  </li>
+                  <li>
+                    <InteractiveRow href="/servicios/fiscal/interlocucion-con-aeat-y-coordinacion-de-respuestas">
+                      Interlocución con AEAT y coordinación de respuestas
+                    </InteractiveRow>
+                  </li>
+                  <li>
+                    <InteractiveRow href="/servicios/fiscal/plan-de-regularizacion-y-minimizacion-de-impacto">
+                      Plan de regularización y minimización de impacto
+                    </InteractiveRow>
+                  </li>
+                </ul>
               </motion.section>
 
               {/* Small print / exclusions */}

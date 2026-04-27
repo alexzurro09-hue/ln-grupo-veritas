@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import ServiciosFiscal from '@/src/views/ServiciosFiscal';
 
 export const metadata: Metadata = {
-  title: 'Servicios Fiscales en Madrid | LN Grupo Veritas',
+  title: 'Asesoría Fiscal en Alcalá de Henares | LN Grupo Veritas',
   description:
-    'Estrategia y gestión fiscal para empresas y autónomos en Madrid. Cumplimiento AEAT, RETA, licencias y representación ante inspección.',
+    'Expertos en gestión de impuestos, planificación fiscal para empresas y defensa ante inspecciones de Hacienda en Alcalá de Henares. Más de 30 años de experiencia.',
 };
 
 export default function Page() {

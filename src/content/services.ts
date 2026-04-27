@@ -37,7 +37,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         ],
       },
       {
-        slug: 'herencias-y-planificacion-patrimonial',
+        slug: 'sucesiones-herencias-y-planificacion-patrimonial',
         title: 'Herencias y Planificación Patrimonial',
         summary: 'Orden y seguridad jurídica en la transmisión del patrimonio.',
         body: [

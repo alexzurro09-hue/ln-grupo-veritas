@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import type { LucideIcon } from 'lucide-react';
-import { Check } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import { titleToSlug } from '../content/services';
 
@@ -38,28 +38,34 @@ export default function LegalServiceCard({ title, Icon, items, className }: Prop
         </div>
       </div>
 
-      <ul className="mt-5 space-y-2.5 list-none text-[13px] leading-relaxed text-[#333] font-sans">
+      <ul className="mt-5 list-none text-[13px] leading-relaxed text-[#333] font-sans divide-y divide-stone-100">
         {items.map((item) => {
           const label = typeof item === 'string' ? item : item.label;
           const href = typeof item === 'string' ? undefined : item.href;
           const key = href ?? titleToSlug(label);
 
           return (
-            <li key={key} className="flex gap-2.5">
-            <span className="mt-[2px] text-veritas-red">
-              <Check size={16} strokeWidth={2.2} />
-            </span>
-            {href ? (
-              <Link
-                href={href}
-                className="hover:text-veritas-green transition-colors underline-offset-4 hover:underline"
-              >
-                {label}
-              </Link>
-            ) : (
-              <span>{label}</span>
-            )}
-          </li>
+            <li key={key}>
+              {href ? (
+                <Link
+                  href={href}
+                  className="group flex items-center justify-between gap-4 py-3 px-4 rounded-md hover:bg-stone-100/50 transition-all duration-200"
+                >
+                  <span className="transition-transform duration-200 group-hover:translate-x-1">
+                    {label}
+                  </span>
+                  <ChevronRight
+                    size={16}
+                    className="shrink-0 text-[#8b4c39] transition-colors duration-200 group-hover:text-[#a03621]"
+                  />
+                </Link>
+              ) : (
+                <div className="flex items-center justify-between gap-4 py-3 px-4 rounded-md text-stone-500">
+                  <span>{label}</span>
+                  <ChevronRight size={16} className="shrink-0 text-[#8b4c39]/30" />
+                </div>
+              )}
+            </li>
           );
         })}
       </ul>

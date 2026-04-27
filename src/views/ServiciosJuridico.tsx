@@ -61,7 +61,7 @@ export default function ServiciosJuridico() {
                   },
                   {
                     label: 'Sucesiones, herencias y planificación patrimonial',
-                    href: `/servicios/juridico/${titleToSlug('Herencias y Planificación Patrimonial')}`,
+                    href: `/servicios/juridico/${titleToSlug('Sucesiones, Herencias y Planificación Patrimonial')}`,
                   },
                   { label: 'Reclamación de cantidad y procedimientos declarativos', href: `/servicios/juridico/${titleToSlug('Reclamación de Cantidad')}` },
                 ]}
@@ -78,9 +78,22 @@ export default function ServiciosJuridico() {
                     label: 'Constitución de sociedades y pactos de socios',
                     href: `/servicios/juridico/${titleToSlug('Constitución de Sociedades y Pactos de Socios')}`,
                   },
-                  'Reestructuración, gobierno corporativo y asesoría recurrente',
-                  { label: 'Contratación mercantil y negociación', href: `/servicios/juridico/${titleToSlug('Contratación Mercantil y Negociación')}` },
-                  'Conflictos societarios y defensa de administradores',
+                  {
+                    label: 'Reestructuración, gobierno corporativo y asesoría recurrente',
+                    href: `/servicios/juridico/${titleToSlug(
+                      'Reestructuración, Gobierno Corporativo y Asesoría Recurrente',
+                    )}`,
+                  },
+                  {
+                    label: 'Contratación mercantil y negociación',
+                    href: `/servicios/juridico/${titleToSlug('Contratación Mercantil y Negociación')}`,
+                  },
+                  {
+                    label: 'Conflictos societarios y defensa de administradores',
+                    href: `/servicios/juridico/${titleToSlug(
+                      'Conflictos Societarios y Defensa de Administradores',
+                    )}`,
+                  },
                 ]}
                 className="h-full"
               />
@@ -91,10 +104,24 @@ export default function ServiciosJuridico() {
                 title="Área Penal"
                 Icon={Gavel}
                 items={[
-                  { label: 'Defensa y acusación particular', href: `/servicios/juridico/${titleToSlug('Defensa y Acusación Particular')}` },
-                  'Asistencia letrada en diligencias urgentes',
-                  'Delitos económicos y patrimoniales',
-                  'Estrategia procesal y negociación',
+                  {
+                    label: 'Defensa y acusación particular',
+                    href: `/servicios/juridico/${titleToSlug('Defensa y Acusación Particular')}`,
+                  },
+                  {
+                    label: 'Asistencia letrada en diligencias urgentes',
+                    href: `/servicios/juridico/${titleToSlug(
+                      'Asistencia Letrada en Diligencias Urgentes',
+                    )}`,
+                  },
+                  {
+                    label: 'Delitos económicos y patrimoniales',
+                    href: `/servicios/juridico/${titleToSlug('Delitos Económicos y Patrimoniales')}`,
+                  },
+                  {
+                    label: 'Estrategia procesal y negociación',
+                    href: `/servicios/juridico/${titleToSlug('Estrategia Procesal y Negociación')}`,
+                  },
                 ]}
                 className="h-full"
               />
@@ -105,10 +132,26 @@ export default function ServiciosJuridico() {
                 title="Área Laboral"
                 Icon={Users}
                 items={[
-                  { label: 'Contratación, despidos y sanciones', href: `/servicios/juridico/${titleToSlug('Contratación, Despidos y Sanciones')}` },
-                  'Reclamaciones de cantidad y salarios',
-                  'Asesoría en RRHH y prevención de conflictos',
-                  'Representación en SMAC y jurisdicción social',
+                  {
+                    label: 'Contratación, despidos y sanciones',
+                    href: `/servicios/juridico/${titleToSlug('Contratación, Despidos y Sanciones')}`,
+                  },
+                  {
+                    label: 'Reclamaciones de cantidad y salarios',
+                    href: `/servicios/juridico/${titleToSlug('Reclamaciones de Cantidad y Salarios')}`,
+                  },
+                  {
+                    label: 'Asesoría en RRHH y prevención de conflictos',
+                    href: `/servicios/juridico/${titleToSlug(
+                      'Asesoría en RRHH y Prevención de Conflictos',
+                    )}`,
+                  },
+                  {
+                    label: 'Representación en SMAC y jurisdicción social',
+                    href: `/servicios/juridico/${titleToSlug(
+                      'Representación en SMAC y Jurisdicción Social',
+                    )}`,
+                  },
                 ]}
                 className="h-full"
               />
@@ -119,10 +162,24 @@ export default function ServiciosJuridico() {
                 title="Área Contencioso"
                 Icon={Landmark}
                 items={[
-                  { label: 'Recursos administrativos y reclamaciones', href: `/servicios/juridico/${titleToSlug('Recursos y Defensa Contencioso-Administrativa')}` },
-                  'Sanciones, licencias y procedimientos ante la Administración',
-                  'Defensa contencioso-administrativa',
-                  'Estrategia y acompañamiento documental',
+                  {
+                    label: 'Recursos administrativos y reclamaciones',
+                    href: `/servicios/juridico/${titleToSlug('Recursos Administrativos y Reclamaciones')}`,
+                  },
+                  {
+                    label: 'Sanciones, licencias y procedimientos ante la Administración',
+                    href: '/servicios/juridico/sanciones-licencias-y-procedimientos',
+                  },
+                  {
+                    label: 'Defensa contencioso-administrativa',
+                    href: `/servicios/juridico/${titleToSlug('Defensa Contencioso-Administrativa')}`,
+                  },
+                  {
+                    label: 'Estrategia y acompañamiento documental',
+                    href: `/servicios/juridico/${titleToSlug(
+                      'Estrategia y Acompañamiento Documental',
+                    )}`,
+                  },
                 ]}
                 className="h-full"
               />

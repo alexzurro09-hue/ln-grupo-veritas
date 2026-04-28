@@ -168,6 +168,10 @@ export default function HomePage() {
         </aside>
       </main>
 
+      {/*
+      Legacy footer/banner (historical reference only).
+      Cookie consent is now handled globally via <CookieConsent /> in src/app/layout.tsx.
+
       <footer className="w-full h-[40px] bg-white border-t border-gray-100 flex items-center px-10 justify-between text-[10px] text-[#999] pb-[76px] lg:pb-0">
         <div>&copy; 2024 Grupo Veritas - Todos los derechos reservados.</div>
         <div className="flex gap-10 font-bold uppercase tracking-widest">
@@ -179,6 +183,7 @@ export default function HomePage() {
           </a>
         </div>
       </footer>
+      */}
     </>
   );
 }

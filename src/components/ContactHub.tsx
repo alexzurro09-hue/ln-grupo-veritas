@@ -56,7 +56,7 @@ export default function ContactHub({
   return (
     <>
       {/* Boutique Action Bar (mobile/tablet) */}
-      <div className="fixed bottom-0 left-0 right-0 z-[120] lg:hidden">
+      <div className="fixed bottom-0 left-0 right-0 z-[200] lg:hidden">
         <div className="bg-[#1b3022] text-[#F8F5E9] h-[60px] shadow-[0_-10px_30px_rgba(0,0,0,0.18)]">
           <div className="max-w-7xl mx-auto h-full grid grid-cols-[1fr_1px_1fr] items-center">
             <a
@@ -83,7 +83,7 @@ export default function ContactHub({
       </div>
 
       {/* Desktop trigger + popover */}
-      <div className="hidden lg:block fixed bottom-6 right-6 z-[120]">
+      <div className="hidden lg:block fixed bottom-6 right-6 z-[200]">
         <button
           ref={buttonRef}
           type="button"

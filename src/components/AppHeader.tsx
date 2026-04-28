@@ -7,6 +7,7 @@ import { ChevronDown } from 'lucide-react';
 
 export default function AppHeader() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isServiciosOpen, setIsServiciosOpen] = useState(false);
   const pathname = usePathname() ?? '';
 
   const isHome = pathname === '/';
@@ -18,6 +19,10 @@ export default function AppHeader() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    setIsServiciosOpen(false);
+  }, [pathname]);
 
   return (
     <div
@@ -51,24 +56,38 @@ export default function AppHeader() {
       </header>
 
       <nav className="text-white h-[45px] flex items-center justify-center shadow-lg bg-veritas-green">
-        <div className="max-w-7xl mx-auto w-full px-6 md:px-10 flex justify-center items-center h-full">
-          <div className="flex items-stretch h-full gap-8 md:gap-16 font-medium uppercase text-[12px] tracking-[0.2em]">
+        <div className="max-w-7xl mx-auto w-full px-4 md:px-10 flex justify-center items-center h-full">
+          <div className="flex flex-row justify-between md:justify-center items-stretch h-full w-full md:w-auto md:gap-16 font-medium uppercase text-[10px] md:text-[12px] tracking-[0.12em] md:tracking-[0.2em]">
             <NavLink href="/" active={isHome}>Inicio</NavLink>
 
             <div
-              className={`group relative h-full flex items-center cursor-pointer transition-all duration-300 ease-in-out tracking-widest w-[140px] justify-center ${
+              className={`group relative h-full flex items-center transition-all duration-300 ease-in-out tracking-widest px-2 md:px-0 md:w-[140px] justify-center ${
                 isServicios ? 'font-bold opacity-100' : 'font-normal opacity-80 hover:opacity-100 hover:font-bold'
               }`}
             >
-              <span className="flex items-center gap-1 relative">
-                Servicios <ChevronDown size={12} />
+              <button
+                type="button"
+                onClick={() => setIsServiciosOpen((v) => !v)}
+                className="flex items-center gap-1 relative h-full"
+                aria-haspopup="menu"
+                aria-expanded={isServiciosOpen}
+              >
+                Servicios{' '}
+                <ChevronDown
+                  size={12}
+                  className={`transition-transform duration-200 md:transition-none ${
+                    isServiciosOpen ? 'rotate-180' : 'rotate-0'
+                  }`}
+                />
                 <span
-                  className={`absolute left-0 right-0 -bottom-[16px] h-px bg-white transition-opacity duration-300 ${
+                  className={`absolute left-0 right-0 -bottom-[14px] md:-bottom-[16px] h-px bg-white transition-opacity duration-300 ${
                     isServicios ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
                   }`}
                 />
-              </span>
-              <div className="absolute top-full left-1/2 -translate-x-1/2 w-64 bg-white text-veritas-green shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-200 z-50 border-t-2 border-veritas-red rounded-none pt-0">
+              </button>
+
+              {/* Desktop dropdown (hover) */}
+              <div className="hidden md:block absolute top-full left-1/2 -translate-x-1/2 w-64 bg-white text-veritas-green shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-200 z-50 border-t-2 border-veritas-red rounded-none pt-0">
                 <div className="flex flex-col py-2">
                   <DropdownLink href="/servicios/juridico">Jurídico</DropdownLink>
                   <DropdownLink href="/servicios/fiscal">Fiscal</DropdownLink>
@@ -82,6 +101,18 @@ export default function AppHeader() {
           </div>
         </div>
       </nav>
+
+      {/* Mobile dropdown (tap) */}
+      <div className={`md:hidden bg-white border-b border-veritas-green/10 ${isServiciosOpen ? 'block' : 'hidden'}`}>
+        <div className="max-w-7xl mx-auto px-4 py-2">
+          <div className="grid gap-1">
+            <MobileDropdownLink href="/servicios/juridico">Jurídico</MobileDropdownLink>
+            <MobileDropdownLink href="/servicios/fiscal">Fiscal</MobileDropdownLink>
+            <MobileDropdownLink href="/servicios/laboral">Laboral</MobileDropdownLink>
+            <MobileDropdownLink href="/servicios/contable">Contable</MobileDropdownLink>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -98,13 +129,13 @@ function NavLink({
   return (
     <Link
       href={href}
-      className={`h-full flex items-center justify-center w-[140px] uppercase text-[12px] tracking-widest transition-all duration-300 ease-in-out relative group
+      className={`h-full flex items-center justify-center px-2 md:px-0 md:w-[140px] uppercase text-[10px] md:text-[12px] tracking-[0.12em] md:tracking-widest transition-all duration-300 ease-in-out relative group
         ${active ? 'font-bold opacity-100' : 'font-normal opacity-80 hover:opacity-100 hover:font-bold'}`}
     >
       <span className="relative">
         {children}
         <span
-          className={`absolute left-0 right-0 -bottom-[16px] h-px bg-white transition-opacity duration-300 ${
+          className={`absolute left-0 right-0 -bottom-[14px] md:-bottom-[16px] h-px bg-white transition-opacity duration-300 ${
             active ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
           }`}
         />
@@ -118,6 +149,17 @@ function DropdownLink({ href, children }: { href: string; children: React.ReactN
     <Link
       href={href}
       className="px-6 py-3 text-[11px] font-medium uppercase tracking-widest hover:bg-gray-50 hover:text-veritas-red transition-all block border-b border-gray-50 last:border-0"
+    >
+      {children}
+    </Link>
+  );
+}
+
+function MobileDropdownLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <Link
+      href={href}
+      className="w-full rounded-none border border-gray-100 px-4 py-3 text-[11px] font-bold uppercase tracking-[0.16em] text-veritas-green hover:text-veritas-red hover:bg-gray-50 transition-colors"
     >
       {children}
     </Link>

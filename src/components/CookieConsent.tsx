@@ -125,7 +125,7 @@ export default function CookieConsent() {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-2 md:flex md:items-center md:justify-end md:gap-2">
+            <div className="grid grid-cols-2 gap-2 max-[380px]:grid-cols-1 md:flex md:items-center md:justify-end md:gap-2">
               <button
                 type="button"
                 onClick={() => setShowSettings(true)}

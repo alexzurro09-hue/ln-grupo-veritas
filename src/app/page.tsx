@@ -14,9 +14,9 @@ const ADDRESS = 'Camino de Alcalá 52, 28816 Camarma de Esteruelas (Madrid)';
 export default function HomePage() {
   return (
     <>
-      <main className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_364px] min-h-[593px] pb-[76px] md:pb-[76px] lg:pb-0">
+      <main className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_364px] min-h-[593px] pb-32 md:pb-[76px] lg:pb-0">
         <div className="flex flex-col border-r border-gray-100">
-          <section className="relative h-[700px] overflow-hidden flex items-center border-b border-veritas-green/10">
+          <section className="relative py-16 md:py-20 flex items-center border-b border-veritas-green/10">
             <div className="absolute inset-0 z-0">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img

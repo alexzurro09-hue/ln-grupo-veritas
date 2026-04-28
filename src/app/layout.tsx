@@ -4,6 +4,8 @@ import type { ReactNode } from 'react';
 import './globals.css';
 import AppHeader from '@/src/components/AppHeader';
 import ContactHub from '@/src/components/ContactHub';
+import Footer from '@/components/Footer';
+import CookieConsent from '@/components/CookieConsent';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -31,7 +33,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className="min-h-screen selection:bg-veritas-red selection:text-white">
         <AppHeader />
         {children}
+        <Footer />
         <ContactHub />
+        <CookieConsent />
       </body>
     </html>
   );

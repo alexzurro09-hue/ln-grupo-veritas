@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, Scale, Gavel, Users, Landmark } from 'lucide-react';
-import LegalServiceCard from '../components/LegalServiceCard';
+import { Briefcase, Scale, Gavel, Users, Landmark, ChevronRight, HeartHandshake } from 'lucide-react';
+import Link from 'next/link';
 import { titleToSlug } from '../content/services';
 
 const container = {
@@ -21,18 +21,76 @@ const item = {
   show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.2, 0.9, 0.2, 1] as [number, number, number, number] } },
 };
 
+function ActionRow({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <Link
+      href={href}
+      className="group flex items-center justify-between gap-4 py-3 px-4 rounded-md hover:bg-stone-100/50 transition-all duration-200"
+    >
+      <span className="text-[13px] leading-relaxed text-[#333] font-sans transition-transform duration-200 group-hover:translate-x-1">
+        {children}
+      </span>
+      <ChevronRight size={16} className="shrink-0 text-stone-400 transition-colors duration-200 group-hover:text-veritas-red" />
+    </Link>
+  );
+}
+
+function ServiceCard({
+  title,
+  subtitle,
+  Icon,
+  items,
+  className,
+}: {
+  title: string;
+  subtitle: string;
+  Icon: React.ComponentType<{ size?: number; strokeWidth?: number; className?: string }>;
+  items: { label: string; href: string }[];
+  className?: string;
+}) {
+  return (
+    <motion.section
+      variants={item}
+      whileHover={{ y: -4 }}
+      className={[
+        'rounded-none p-6 md:p-7 bg-white border border-stone-100 shadow-sm hover:shadow-md transition-shadow',
+        'flex flex-col h-full',
+        className ?? '',
+      ].join(' ')}
+    >
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <h2 className="font-serif font-bold text-2xl capitalize text-[#1b3022]">{title}</h2>
+          <p className="mt-2 text-[13px] text-[#333] font-sans leading-relaxed">{subtitle}</p>
+        </div>
+        <div className="text-stone-400">
+          <Icon size={22} strokeWidth={1.6} />
+        </div>
+      </div>
+
+      <ul className="mt-6 flex-1 list-none divide-y divide-stone-100">
+        {items.map((it) => (
+          <li key={it.href}>
+            <ActionRow href={it.href}>{it.label}</ActionRow>
+          </li>
+        ))}
+      </ul>
+    </motion.section>
+  );
+}
+
 export default function ServiciosJuridico() {
   return (
     <>
-      <div className="bg-[#f9f7f2]">
+      <div className="bg-[#f5f5f1] border-b border-veritas-green/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10 py-12 md:py-16">
           <div className="max-w-3xl">
             <div className="text-[10px] uppercase tracking-[0.34em] text-veritas-green/70 font-bold">
               Áreas de práctica
             </div>
-            <h2 className="mt-3 font-serif font-bold text-[#1b3022] text-3xl md:text-4xl tracking-tight">
+            <h1 className="mt-3 font-serif font-bold text-[#1b3022] text-3xl md:text-4xl tracking-tight">
               Servicios Jurídicos
-            </h2>
+            </h1>
             <p className="mt-4 text-[14px] md:text-[15px] leading-relaxed text-[#3b3b3b] font-sans">
               Más de <span className="font-semibold text-[#1b3022]">30 años</span> defendiendo los intereses de
               empresas y particulares con rigor, método y una vocación clara: convertir la complejidad legal en
@@ -44,146 +102,129 @@ export default function ServiciosJuridico() {
             variants={container}
             initial="hidden"
             animate="show"
-            className="mt-10 md:mt-12 grid grid-cols-1 md:grid-cols-6 gap-4 md:gap-5"
+            className="mt-10 md:mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch"
           >
-            <motion.div variants={item} className="md:col-span-3">
-              <LegalServiceCard
-                title="Área Civil"
-                Icon={Scale}
-                items={[
-                  {
-                    label: 'Contratos, reclamaciones y responsabilidad civil',
-                    href: `/servicios/juridico/${titleToSlug('Contratos y Reclamaciones')}`,
-                  },
-                  {
-                    label: 'Arrendamientos, propiedad horizontal y comunidad de bienes',
-                    href: `/servicios/juridico/${titleToSlug('Arrendamientos y Propiedad Horizontal')}`,
-                  },
-                  {
-                    label: 'Sucesiones, herencias y planificación patrimonial',
-                    href: `/servicios/juridico/${titleToSlug('Sucesiones, Herencias y Planificación Patrimonial')}`,
-                  },
-                  { label: 'Reclamación de cantidad y procedimientos declarativos', href: `/servicios/juridico/${titleToSlug('Reclamación de Cantidad')}` },
-                ]}
-                className="h-full"
-              />
-            </motion.div>
+            {/* Fila 1 */}
+            <ServiceCard
+              title="Derecho mercantil y empresarial"
+              subtitle="Asesoría y defensa técnica para empresas: constitución, contratación, gobierno corporativo y conflictos societarios."
+              Icon={Briefcase}
+              items={[
+                {
+                  label: 'Constitución de sociedades y pactos de socios',
+                  href: `/servicios/juridico/${titleToSlug('Constitución de Sociedades y Pactos de Socios')}`,
+                },
+                {
+                  label: 'Reestructuración, gobierno corporativo y asesoría recurrente',
+                  href: `/servicios/juridico/${titleToSlug('Reestructuración, Gobierno Corporativo y Asesoría Recurrente')}`,
+                },
+                {
+                  label: 'Contratación mercantil y negociación',
+                  href: `/servicios/juridico/${titleToSlug('Contratación Mercantil y Negociación')}`,
+                },
+                {
+                  label: 'Conflictos societarios y defensa de administradores',
+                  href: `/servicios/juridico/${titleToSlug('Conflictos Societarios y Defensa de Administradores')}`,
+                },
+              ]}
+            />
 
-            <motion.div variants={item} className="md:col-span-3">
-              <LegalServiceCard
-                title="Área Mercantil"
-                Icon={Briefcase}
-                items={[
-                  {
-                    label: 'Constitución de sociedades y pactos de socios',
-                    href: `/servicios/juridico/${titleToSlug('Constitución de Sociedades y Pactos de Socios')}`,
-                  },
-                  {
-                    label: 'Reestructuración, gobierno corporativo y asesoría recurrente',
-                    href: `/servicios/juridico/${titleToSlug(
-                      'Reestructuración, Gobierno Corporativo y Asesoría Recurrente',
-                    )}`,
-                  },
-                  {
-                    label: 'Contratación mercantil y negociación',
-                    href: `/servicios/juridico/${titleToSlug('Contratación Mercantil y Negociación')}`,
-                  },
-                  {
-                    label: 'Conflictos societarios y defensa de administradores',
-                    href: `/servicios/juridico/${titleToSlug(
-                      'Conflictos Societarios y Defensa de Administradores',
-                    )}`,
-                  },
-                ]}
-                className="h-full"
-              />
-            </motion.div>
+            <ServiceCard
+              title="Derecho administrativo y fiscal"
+              subtitle="Recursos, sanciones, licencias y defensa ante la Administración con enfoque técnico y documental."
+              Icon={Landmark}
+              items={[
+                {
+                  label: 'Recursos administrativos y reclamaciones',
+                  href: `/servicios/juridico/${titleToSlug('Recursos Administrativos y Reclamaciones')}`,
+                },
+                {
+                  label: 'Sanciones, licencias y procedimientos ante la Administración',
+                  href: '/servicios/juridico/sanciones-licencias-y-procedimientos',
+                },
+                {
+                  label: 'Defensa contencioso-administrativa',
+                  href: `/servicios/juridico/${titleToSlug('Defensa Contencioso-Administrativa')}`,
+                },
+                {
+                  label: 'Estrategia y acompañamiento documental',
+                  href: `/servicios/juridico/${titleToSlug('Estrategia y Acompañamiento Documental')}`,
+                },
+              ]}
+            />
 
-            <motion.div variants={item} className="md:col-span-2">
-              <LegalServiceCard
-                title="Área Penal"
-                Icon={Gavel}
-                items={[
-                  {
-                    label: 'Defensa y acusación particular',
-                    href: `/servicios/juridico/${titleToSlug('Defensa y Acusación Particular')}`,
-                  },
-                  {
-                    label: 'Asistencia letrada en diligencias urgentes',
-                    href: `/servicios/juridico/${titleToSlug(
-                      'Asistencia Letrada en Diligencias Urgentes',
-                    )}`,
-                  },
-                  {
-                    label: 'Delitos económicos y patrimoniales',
-                    href: `/servicios/juridico/${titleToSlug('Delitos Económicos y Patrimoniales')}`,
-                  },
-                  {
-                    label: 'Estrategia procesal y negociación',
-                    href: `/servicios/juridico/${titleToSlug('Estrategia Procesal y Negociación')}`,
-                  },
-                ]}
-                className="h-full"
-              />
-            </motion.div>
+            {/* Fila 2 */}
+            <ServiceCard
+              title="Derecho civil y contratación"
+              subtitle="Contratos, reclamaciones y propiedad: claridad jurídica para particulares y empresas."
+              Icon={Scale}
+              items={[
+                {
+                  label: 'Contratos, reclamaciones y responsabilidad civil',
+                  href: `/servicios/juridico/${titleToSlug('Contratos y Reclamaciones')}`,
+                },
+                {
+                  label: 'Arrendamientos, propiedad horizontal y comunidad de bienes',
+                  href: `/servicios/juridico/${titleToSlug('Arrendamientos y Propiedad Horizontal')}`,
+                },
+                {
+                  label: 'Reclamación de cantidad y procedimientos declarativos',
+                  href: `/servicios/juridico/${titleToSlug('Reclamación de Cantidad')}`,
+                },
+              ]}
+            />
 
-            <motion.div variants={item} className="md:col-span-2">
-              <LegalServiceCard
-                title="Área Laboral"
-                Icon={Users}
-                items={[
-                  {
-                    label: 'Contratación, despidos y sanciones',
-                    href: `/servicios/juridico/${titleToSlug('Contratación, Despidos y Sanciones')}`,
-                  },
-                  {
-                    label: 'Reclamaciones de cantidad y salarios',
-                    href: `/servicios/juridico/${titleToSlug('Reclamaciones de Cantidad y Salarios')}`,
-                  },
-                  {
-                    label: 'Asesoría en RRHH y prevención de conflictos',
-                    href: `/servicios/juridico/${titleToSlug(
-                      'Asesoría en RRHH y Prevención de Conflictos',
-                    )}`,
-                  },
-                  {
-                    label: 'Representación en SMAC y jurisdicción social',
-                    href: `/servicios/juridico/${titleToSlug(
-                      'Representación en SMAC y Jurisdicción Social',
-                    )}`,
-                  },
-                ]}
-                className="h-full"
-              />
-            </motion.div>
+            <ServiceCard
+              title="Derecho laboral"
+              subtitle="Contratación, despidos y reclamaciones con prevención de conflicto y defensa técnica."
+              Icon={Users}
+              items={[
+                {
+                  label: 'Contratación, despidos y sanciones',
+                  href: `/servicios/juridico/${titleToSlug('Contratación, Despidos y Sanciones')}`,
+                },
+                {
+                  label: 'Reclamaciones de cantidad y salarios',
+                  href: `/servicios/juridico/${titleToSlug('Reclamaciones de Cantidad y Salarios')}`,
+                },
+                {
+                  label: 'Asesoría en RRHH y prevención de conflictos',
+                  href: `/servicios/juridico/${titleToSlug('Asesoría en RRHH y Prevención de Conflictos')}`,
+                },
+                {
+                  label: 'Representación en SMAC y jurisdicción social',
+                  href: `/servicios/juridico/${titleToSlug('Representación en SMAC y Jurisdicción Social')}`,
+                },
+              ]}
+            />
 
-            <motion.div variants={item} className="md:col-span-2">
-              <LegalServiceCard
-                title="Área Contencioso"
-                Icon={Landmark}
-                items={[
-                  {
-                    label: 'Recursos administrativos y reclamaciones',
-                    href: `/servicios/juridico/${titleToSlug('Recursos Administrativos y Reclamaciones')}`,
-                  },
-                  {
-                    label: 'Sanciones, licencias y procedimientos ante la Administración',
-                    href: '/servicios/juridico/sanciones-licencias-y-procedimientos',
-                  },
-                  {
-                    label: 'Defensa contencioso-administrativa',
-                    href: `/servicios/juridico/${titleToSlug('Defensa Contencioso-Administrativa')}`,
-                  },
-                  {
-                    label: 'Estrategia y acompañamiento documental',
-                    href: `/servicios/juridico/${titleToSlug(
-                      'Estrategia y Acompañamiento Documental',
-                    )}`,
-                  },
-                ]}
-                className="h-full"
-              />
-            </motion.div>
+            {/* Fila 3 */}
+            <ServiceCard
+              title="Derecho de familia y sucesiones"
+              subtitle="Especialistas en la gestión técnica y humana de procesos familiares y sucesorios en Alcalá de Henares y Madrid. 30 años de discreción y rigor."
+              Icon={HeartHandshake}
+              items={[
+                { label: 'Divorcios y separaciones', href: '/servicios/juridico/divorcios' },
+                { label: 'Custodia de hijos y pensiones alimenticias', href: '/servicios/juridico/custodia-y-pensiones' },
+                { label: 'Liquidación de gananciales', href: '/servicios/juridico/liquidacion-de-gananciales' },
+                { label: 'Herencias y sucesiones', href: '/servicios/juridico/sucesiones-herencias-y-planificacion-patrimonial' },
+              ]}
+            />
+
+            <ServiceCard
+              title="Representación y Defensa"
+              subtitle="Intervención procesal, asistencia letrada y estrategia de defensa ante escenarios críticos."
+              Icon={Gavel}
+              items={[
+                { label: 'Defensa y acusación particular', href: `/servicios/juridico/${titleToSlug('Defensa y Acusación Particular')}` },
+                {
+                  label: 'Asistencia letrada en diligencias urgentes',
+                  href: `/servicios/juridico/${titleToSlug('Asistencia Letrada en Diligencias Urgentes')}`,
+                },
+                { label: 'Delitos económicos y patrimoniales', href: `/servicios/juridico/${titleToSlug('Delitos Económicos y Patrimoniales')}` },
+                { label: 'Estrategia procesal y negociación', href: `/servicios/juridico/${titleToSlug('Estrategia Procesal y Negociación')}` },
+              ]}
+            />
           </motion.div>
         </div>
       </div>

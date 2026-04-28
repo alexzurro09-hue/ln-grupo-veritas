@@ -12,9 +12,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  const serviceTitle = 'Sucesiones, Herencias y Planificación Patrimonial';
+  const serviceTitle = 'Herencias y sucesiones';
   const description =
-    'Especialistas en gestión integral de herencias, testamentos y protección de activos familiares en Alcalá de Henares y Madrid. Más de 30 años de trayectoria garantizando su tranquilidad.';
+    'Gestión técnica y humana del proceso sucesorio y planificación hereditaria en Alcalá de Henares y Madrid. 30 años de rigor y sensibilidad.';
 
   const metodo = [
     'Analizamos la situación sucesoria y el patrimonio existente con un enfoque preventivo, evaluando las implicaciones fiscales y legales de cada decisión.',
@@ -24,7 +24,7 @@ export default function Page() {
 
   return (
     <>
-      <div className="bg-[#f9f7f2] border-b border-veritas-green/10">
+      <div className="bg-[#f5f5f1] border-b border-veritas-green/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10 py-6 md:py-8">
           <nav className="text-[10px] uppercase tracking-[0.32em] text-veritas-green/70 font-bold">
             <ol className="flex flex-wrap items-center gap-x-3 gap-y-2">

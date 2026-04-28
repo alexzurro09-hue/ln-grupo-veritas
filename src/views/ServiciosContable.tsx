@@ -3,15 +3,15 @@
 import React, { useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
-  BadgeCheck,
-  BarChart3,
   Building2,
   ChevronDown,
+  ChevronRight,
   FileSpreadsheet,
   Landmark,
   ShieldCheck,
   TrendingUp,
 } from 'lucide-react';
+import Link from 'next/link';
 
 const container = {
   hidden: {},
@@ -30,20 +30,36 @@ const item = {
 
 function Pill({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center px-3 py-1 rounded-none bg-gray-100 text-[#2f2f2f] text-[11px] font-medium tracking-wide border border-stone-200">
+    <span className="inline-flex items-center px-3 py-1 rounded-sm bg-gray-100 text-[#2f2f2f] text-[11px] font-medium tracking-wide border border-stone-200">
       {children}
     </span>
   );
 }
 
-function Bullet({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="flex gap-2.5 items-start text-[13px] text-[#333] font-sans leading-relaxed">
-      <span className="mt-[2px] text-veritas-red">
-        <BadgeCheck size={16} strokeWidth={2.2} />
+function ActionRow({ href, children }: { href?: string; children: React.ReactNode }) {
+  const className =
+    'group flex items-center justify-between gap-4 py-3 px-4 rounded-md hover:bg-stone-100/50 transition-all duration-200';
+
+  const content = (
+    <>
+      <span className="text-[13px] leading-relaxed text-[#333] font-sans transition-transform duration-200 group-hover:translate-x-1">
+        {children}
       </span>
-      <span>{children}</span>
-    </div>
+      <ChevronRight
+        size={16}
+        className="shrink-0 text-[#8b4c39] transition-colors duration-200 group-hover:text-[#a03621]"
+      />
+    </>
+  );
+
+  if (!href) {
+    return <div className={className}>{content}</div>;
+  }
+
+  return (
+    <Link href={href} className={className}>
+      {content}
+    </Link>
   );
 }
 
@@ -57,19 +73,15 @@ export default function ServiciosContable() {
 
   return (
     <>
-      <div className="bg-[#f9f7f2]">
+      <div className="bg-[#f5f5f1] border-b border-veritas-green/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10 py-12 md:py-16">
-          {/* Hero */}
           <div className="max-w-3xl">
-            <div className="text-[10px] uppercase tracking-[0.34em] text-veritas-green/70 font-bold">
-              Integridad financiera
-            </div>
-            <h2 className="mt-3 font-serif font-bold text-[#1b3022] text-3xl md:text-4xl tracking-tight">
+            <div className="text-[10px] uppercase tracking-[0.34em] text-veritas-green/70 font-bold">Integridad financiera</div>
+            <h1 className="mt-3 font-serif font-bold text-[#1b3022] text-3xl md:text-4xl tracking-tight">
               Contabilidad Estratégica y Control Financiero
-            </h2>
+            </h1>
             <p className="mt-4 text-[14px] md:text-[15px] leading-relaxed text-[#3b3b3b] font-sans">
-              Transformamos sus datos contables en información valiosa para la toma de decisiones y el cumplimiento
-              mercantil absoluto.
+              Transformamos sus datos contables en información valiosa para la toma de decisiones y el cumplimiento mercantil absoluto.
             </p>
           </div>
 
@@ -77,192 +89,210 @@ export default function ServiciosContable() {
             variants={container}
             initial="hidden"
             animate="show"
-            className="mt-10 md:mt-12 grid grid-cols-1 md:grid-cols-6 gap-4 md:gap-5"
+            className="mt-10 md:mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch"
           >
             {/* Module 1 */}
             <motion.section
               variants={item}
               whileHover={{ y: -4 }}
-              className="group md:col-span-3 bg-white rounded-none border border-stone-100 shadow-[0_10px_24px_rgba(0,0,0,0.08)] hover:shadow-[0_14px_30px_rgba(0,0,0,0.10)] transition-all p-6 md:p-7"
+              className="group flex flex-col bg-white rounded-none border border-stone-100 shadow-[0_10px_24px_rgba(0,0,0,0.08)] hover:shadow-[0_14px_30px_rgba(0,0,0,0.10)] transition-shadow p-6 md:p-7"
             >
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <h3 className="font-serif font-bold text-[18px] md:text-[20px] text-[#1b3022]">
+                  <h2 className="font-serif font-bold text-[18px] md:text-[20px] text-[#1b3022]">
                     Gestión Contable Core
-                  </h3>
+                  </h2>
                   <p className="mt-2 text-[13px] text-[#333] font-sans leading-relaxed">
                     Orden matemático y trazabilidad: alta, registro y cierres con visión de cumplimiento.
                   </p>
                 </div>
-                <div className="text-[#1b3022]/70 transition-colors group-hover:text-veritas-red">
+                <div className="text-stone-400 transition-colors group-hover:text-veritas-red">
                   <FileSpreadsheet size={22} strokeWidth={1.6} />
                 </div>
               </div>
 
-              <div className="mt-5 space-y-2.5">
-                <Bullet>Alta y modificaciones censales (Modelo 036 / 037)</Bullet>
-                <Bullet>Balance de Situación, Sumas y Saldos, y Pérdidas y Ganancias</Bullet>
-                <Bullet>Conciliación y control documental (criterio y consistencia)</Bullet>
-                <Bullet>Cuadro de mando básico para seguimiento mensual</Bullet>
-              </div>
+              <ul className="mt-5 flex-1 list-none text-[13px] leading-relaxed text-[#333] font-sans divide-y divide-stone-100">
+                <li>
+                  <ActionRow href="/servicios/contable/alta-y-modificaciones-censales">
+                    Alta y modificaciones censales (Modelo 036 / 037)
+                  </ActionRow>
+                </li>
+                <li>
+                  <ActionRow href="/servicios/contable/balances-y-estados-financieros">
+                    Balance de Situación, Sumas y Saldos, y Pérdidas y Ganancias
+                  </ActionRow>
+                </li>
+                <li>
+                  <ActionRow href="/servicios/contable/conciliacion-y-control-documental">
+                    Conciliación y control documental (criterio y consistencia)
+                  </ActionRow>
+                </li>
+                <li>
+                  <ActionRow href="/servicios/contable/cuadro-de-mando-mensual">
+                    Cuadro de mando básico para seguimiento mensual
+                  </ActionRow>
+                </li>
+              </ul>
             </motion.section>
 
             {/* Module 2 */}
             <motion.section
               variants={item}
               whileHover={{ y: -4 }}
-              className="group md:col-span-3 bg-white rounded-none border border-stone-100 shadow-[0_10px_24px_rgba(0,0,0,0.08)] hover:shadow-[0_14px_30px_rgba(0,0,0,0.10)] transition-all p-6 md:p-7"
+              className="group flex flex-col bg-white rounded-none border border-stone-100 shadow-[0_10px_24px_rgba(0,0,0,0.08)] hover:shadow-[0_14px_30px_rgba(0,0,0,0.10)] transition-shadow p-6 md:p-7"
             >
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <h3 className="font-serif font-bold text-[18px] md:text-[20px] text-[#1b3022]">
+                  <h2 className="font-serif font-bold text-[18px] md:text-[20px] text-[#1b3022]">
                     Calendario Tributario de Sociedades
-                  </h3>
+                  </h2>
                   <p className="mt-2 text-[13px] text-[#333] font-sans leading-relaxed">
                     Un sistema claro de obligaciones para evitar retrasos, recargos y requerimientos.
                   </p>
                 </div>
-                <div className="text-[#1b3022]/70 transition-colors group-hover:text-veritas-red">
+                <div className="text-stone-400 transition-colors group-hover:text-veritas-red">
                   <Building2 size={22} strokeWidth={1.6} />
                 </div>
               </div>
 
-              <div className="mt-5 flex flex-wrap gap-2">
+              <ul className="mt-5 list-none text-[13px] leading-relaxed text-[#333] font-sans divide-y divide-stone-100">
+                <li>
+                  <ActionRow href="/servicios/contable/preparacion-y-presentacion-con-soporte-documental">
+                    Preparación y presentación con soporte documental
+                  </ActionRow>
+                </li>
+                <li>
+                  <ActionRow href="/servicios/contable/revision-de-coherencias-entre-contabilidad-y-fiscalidad">
+                    Revisión de coherencias entre contabilidad y fiscalidad
+                  </ActionRow>
+                </li>
+                <li>
+                  <ActionRow href="/servicios/contable/seguimiento-de-notificaciones-y-requerimientos">
+                    Seguimiento de notificaciones y requerimientos
+                  </ActionRow>
+                </li>
+              </ul>
+
+              <div className="mt-auto pt-6 flex flex-wrap gap-2">
                 {models.map((m) => (
                   <React.Fragment key={m}>
                     <Pill>Modelo {m}</Pill>
                   </React.Fragment>
                 ))}
               </div>
-
-              <div className="mt-5 space-y-2.5">
-                <Bullet>Preparación y presentación con soporte documental</Bullet>
-                <Bullet>Revisión de coherencias entre contabilidad y fiscalidad</Bullet>
-                <Bullet>Seguimiento de notificaciones y requerimientos</Bullet>
-              </div>
             </motion.section>
 
-            {/* Module 3 */}
+            {/* Module 3 — Cumplimiento Mercantil */}
             <motion.section
               variants={item}
               whileHover={{ y: -4 }}
-              className="group md:col-span-4 bg-white rounded-none border border-stone-100 shadow-[0_10px_24px_rgba(0,0,0,0.08)] hover:shadow-[0_14px_30px_rgba(0,0,0,0.10)] transition-all p-6 md:p-7"
+              className="group flex flex-col bg-white rounded-none border border-stone-100 shadow-[0_10px_24px_rgba(0,0,0,0.08)] hover:shadow-[0_14px_30px_rgba(0,0,0,0.10)] transition-shadow p-6 md:p-7"
             >
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <h3 className="font-serif font-bold text-[18px] md:text-[20px] text-[#1b3022]">
+                  <h2 className="font-serif font-bold text-[18px] md:text-[20px] text-[#1b3022]">
                     Cumplimiento Mercantil (Blindaje Legal)
-                  </h3>
+                  </h2>
                   <p className="mt-2 text-[13px] text-[#333] font-sans leading-relaxed">
                     Cuentas Anuales y Libros Oficiales en orden: seguridad jurídica y reputación mercantil.
                   </p>
                 </div>
-                <div className="text-[#1b3022]/70 transition-colors group-hover:text-veritas-red">
+                <div className="text-stone-400 transition-colors group-hover:text-veritas-red">
                   <Landmark size={22} strokeWidth={1.6} />
                 </div>
               </div>
 
-              <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="rounded-none border border-stone-100 p-4">
-                  <div className="text-[11px] uppercase tracking-[0.2em] font-bold text-[#1b3022]">
+              <ul className="mt-5 flex-1 list-none text-[13px] leading-relaxed text-[#333] font-sans divide-y divide-stone-100">
+                <li>
+                  <ActionRow href="/servicios/contable/registro-mercantil-cuentas-y-libros">
                     Registro Mercantil
-                  </div>
-                  <div className="mt-3 space-y-2.5">
-                    <Bullet>Presentación de Cuentas Anuales</Bullet>
-                    <Bullet>Legalización de Libros Oficiales</Bullet>
-                    <Bullet>Gestión de plazos y subsanaciones</Bullet>
-                  </div>
-                </div>
-                <div className="rounded-none border border-stone-100 p-4">
-                  <div className="text-[11px] uppercase tracking-[0.2em] font-bold text-[#1b3022]">
-                    Gobernanza documental
-                  </div>
-                  <div className="mt-3 space-y-2.5">
-                    <Bullet>Coherencia contable/mercantil</Bullet>
-                    <Bullet>Orden de soportes y evidencias</Bullet>
-                    <Bullet>Preparación para revisiones y terceros</Bullet>
-                  </div>
-                </div>
-              </div>
+                  </ActionRow>
+                </li>
+                <li>
+                  <ActionRow href="/servicios/contable/gobernanza-documental-y-evidencias">
+                    Gobernanza Documental
+                  </ActionRow>
+                </li>
+              </ul>
             </motion.section>
 
-            {/* Module 4 - highlighted */}
+            {/* Module 4 — Análisis Financiero y Futuro */}
             <motion.section
               variants={item}
               whileHover={{ y: -4 }}
-              className="group md:col-span-2 rounded-none border border-stone-100 bg-[#f1eee5] shadow-[0_10px_24px_rgba(0,0,0,0.08)] hover:shadow-[0_14px_30px_rgba(0,0,0,0.10)] transition-all p-6 md:p-7 relative overflow-hidden"
+              className="group flex flex-col bg-white rounded-none border border-stone-100 shadow-[0_10px_24px_rgba(0,0,0,0.08)] hover:shadow-[0_14px_30px_rgba(0,0,0,0.10)] transition-shadow p-6 md:p-7"
             >
-              <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
-                <div className="absolute top-4 right-4 text-[10px] uppercase tracking-[0.28em] font-bold text-veritas-green/70">
-                  Previsión y Estrategia
-                </div>
-              </div>
-
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <h3 className="font-serif font-bold text-[18px] md:text-[20px] text-[#1b3022]">
+                  <h2 className="font-serif font-bold text-[18px] md:text-[20px] text-[#1b3022]">
                     Análisis Financiero y Futuro
-                  </h3>
+                  </h2>
                   <p className="mt-2 text-[13px] text-[#333] font-sans leading-relaxed">
                     Informe Trimestral para anticipar riesgos, optimizar tesorería y tomar decisiones con contexto.
                   </p>
                 </div>
-                <div className="text-[#1b3022]/70 transition-colors group-hover:text-veritas-red">
+                <div className="text-stone-400 transition-colors group-hover:text-veritas-red">
                   <TrendingUp size={22} strokeWidth={1.6} />
                 </div>
               </div>
 
-              <div className="mt-5 space-y-2.5">
-                <Bullet>Lectura de márgenes y evolución de costes</Bullet>
-                <Bullet>Alertas de desviaciones y escenarios</Bullet>
-                <Bullet>Recomendaciones accionables (no solo números)</Bullet>
-              </div>
-
-              <div className="mt-5 flex items-center gap-2 text-[#1b3022]/70">
-                <BarChart3 size={16} strokeWidth={1.8} />
-                <span className="text-[11px] uppercase tracking-[0.18em] font-bold">Informe trimestral</span>
-              </div>
+              <ul className="mt-5 flex-1 list-none text-[13px] leading-relaxed text-[#333] font-sans divide-y divide-stone-100">
+                <li>
+                  <ActionRow href="/servicios/contable/lectura-de-margenes-y-costes">
+                    Lectura de márgenes y evolución de costes
+                  </ActionRow>
+                </li>
+                <li>
+                  <ActionRow href="/servicios/contable/alertas-de-desviaciones-y-escenarios">
+                    Alertas de desviaciones y escenarios
+                  </ActionRow>
+                </li>
+                <li>
+                  <ActionRow href="/servicios/contable/recomendaciones-financieras-accionables">
+                    Recomendaciones accionables (no solo números)
+                  </ActionRow>
+                </li>
+              </ul>
             </motion.section>
 
             {/* Inspecciones y defensa */}
             <motion.section
               variants={item}
               whileHover={{ y: -4 }}
-              className="group md:col-span-6 bg-white rounded-none border border-stone-100 shadow-[0_10px_24px_rgba(0,0,0,0.08)] hover:shadow-[0_14px_30px_rgba(0,0,0,0.10)] transition-all p-6 md:p-7"
+              className="group bg-white rounded-xl border border-stone-100 shadow-sm hover:shadow-md transition-shadow p-6 md:p-7 md:col-span-2"
             >
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <h3 className="font-serif font-bold text-[18px] md:text-[20px] text-[#1b3022]">
+                  <h2 className="font-serif font-bold text-[18px] md:text-[20px] text-[#1b3022]">
                     Representación ante Hacienda (Socio Defensor)
-                  </h3>
+                  </h2>
                   <p className="mt-2 text-[13px] text-[#333] font-sans leading-relaxed max-w-3xl">
                     Defensa técnica y acompañamiento: derechos contables, documentación ordenada y estrategia para responder con solvencia.
                   </p>
                 </div>
-                <div className="text-[#1b3022]/70 transition-colors group-hover:text-veritas-red">
+                <div className="text-stone-400 transition-colors group-hover:text-veritas-red">
                   <ShieldCheck size={22} strokeWidth={1.6} />
                 </div>
               </div>
 
-              <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-3">
-                {[
-                  'Preparación y revisión de soportes contables y mercantiles',
-                  'Respuesta a requerimientos y coordinación documental',
-                  'Acompañamiento en actuaciones y reuniones',
-                  'Estrategia de regularización y minimización de impacto',
-                ].map((t) => (
-                  <div key={t} className="flex gap-2.5 items-start text-[13px] text-[#333] font-sans leading-relaxed">
-                    <span className="mt-[2px] text-veritas-red">
-                      <BadgeCheck size={16} strokeWidth={2.2} />
-                    </span>
-                    <span>{t}</span>
-                  </div>
-                ))}
+              <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-2">
+                <ActionRow href="/servicios/contable/preparacion-y-revision-de-soportes-contables-y-mercantiles">
+                  Preparación y revisión de soportes contables y mercantiles
+                </ActionRow>
+                <ActionRow href="/servicios/contable/respuesta-a-requerimientos-y-coordinacion-documental">
+                  Respuesta a requerimientos y coordinación documental
+                </ActionRow>
+                <ActionRow href="/servicios/contable/asistencia-en-inspecciones-y-procedimientos-de-gestion">
+                  Asistencia en inspecciones y procedimientos de gestión
+                </ActionRow>
+                <ActionRow href="/servicios/contable/defensa-de-derechos-y-recursos-administrativos">
+                  Defensa de derechos y recursos administrativos
+                </ActionRow>
               </div>
             </motion.section>
 
             {/* Exclusiones (acordeón) */}
-            <motion.section variants={item} className="md:col-span-6">
+            <motion.section variants={item} className="md:col-span-2">
               <div className="bg-white/70 rounded-none border border-stone-100 shadow-[0_10px_24px_rgba(0,0,0,0.06)] p-5 md:p-6">
                 <button
                   type="button"

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     'Blindaje fiscal preventivo. Análisis de riesgos tributarios y auditoría de trazabilidad documental en Alcalá de Henares. Más de 30 años de rigor técnico.',
   alternates: {
     canonical:
-      'https://ln-grupo-veritas.vercel.app/servicios/fiscal/analisis-de-risgos-y-trazabilidad-documental',
+      'https://lngrupoveritas.es/servicios/fiscal/analisis-de-risgos-y-trazabilidad-documental',
   },
 };
 

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Expertos en gobernanza documental y trazabilidad de evidencias contables en Alcalá de Henares. Proteja la integridad de su información financiera.',
   alternates: {
-    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/contable/gobernanza-documental-y-evidencias',
+    canonical: 'https://lngrupoveritas.es/servicios/contable/gobernanza-documental-y-evidencias',
   },
 };
 

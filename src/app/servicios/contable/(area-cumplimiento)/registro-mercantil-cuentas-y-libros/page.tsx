@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Expertos en presentación de Cuentas Anuales y Legalización de Libros Oficiales en el Registro Mercantil de Madrid. Seguridad jurídica para su empresa.',
   alternates: {
-    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/contable/registro-mercantil-cuentas-y-libros',
+    canonical: 'https://lngrupoveritas.es/servicios/contable/registro-mercantil-cuentas-y-libros',
   },
 };
 

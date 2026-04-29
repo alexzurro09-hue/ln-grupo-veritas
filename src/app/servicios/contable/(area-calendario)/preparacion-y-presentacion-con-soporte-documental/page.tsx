@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     'Gestión profesional de la presentación de modelos tributarios con soporte documental exhaustivo en Alcalá de Henares. 30 años de rigor contable.',
   alternates: {
     canonical:
-      'https://ln-grupo-veritas.vercel.app/servicios/contable/preparacion-y-presentacion-con-soporte-documental',
+      'https://lngrupoveritas.es/servicios/contable/preparacion-y-presentacion-con-soporte-documental',
   },
 };
 

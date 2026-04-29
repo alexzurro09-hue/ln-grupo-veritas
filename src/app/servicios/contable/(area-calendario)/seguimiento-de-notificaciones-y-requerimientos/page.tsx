@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Vigilancia profesional del buzón tributario y respuesta técnica a requerimientos de Hacienda en Alcalá de Henares. Evite sanciones por plazos vencidos.',
   alternates: {
-    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/contable/seguimiento-de-notificaciones-y-requerimientos',
+    canonical: 'https://lngrupoveritas.es/servicios/contable/seguimiento-de-notificaciones-y-requerimientos',
   },
 };
 

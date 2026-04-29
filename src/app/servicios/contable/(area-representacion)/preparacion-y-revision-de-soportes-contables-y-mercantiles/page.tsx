@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     'Auditoría técnica y revisión de soportes contables y mercantiles ante inspecciones de Hacienda en Alcalá de Henares. Blindaje documental experto.',
   alternates: {
     canonical:
-      'https://ln-grupo-veritas.vercel.app/servicios/contable/preparacion-y-revision-de-soportes-contables-y-mercantiles',
+      'https://lngrupoveritas.es/servicios/contable/preparacion-y-revision-de-soportes-contables-y-mercantiles',
   },
 };
 

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     'Gestión de licencias de actividad, comunicaciones y registros ante el Ayuntamiento de Alcalá de Henares y otros organismos locales. 30 años de agilidad técnica.',
   alternates: {
     canonical:
-      'https://ln-grupo-veritas.vercel.app/servicios/fiscal/licencias-comunicaciones-y-registros-municipales',
+      'https://lngrupoveritas.es/servicios/fiscal/licencias-comunicaciones-y-registros-municipales',
   },
 };
 

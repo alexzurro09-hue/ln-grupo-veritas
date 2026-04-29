@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     'Expertos en guardia y custodia compartida, régimen de visitas y cálculo de pensiones alimenticias en Alcalá de Henares. Protegemos el bienestar de sus hijos.',
   alternates: {
-    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/juridico/custodia-y-pensiones',
+    canonical: 'https://lngrupoveritas.es/servicios/juridico/custodia-y-pensiones',
   },
 };
 

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Implementación de cuadros de mando mensuales para el seguimiento de KPIs financieros en Alcalá de Henares. Tome decisiones basadas en datos reales y visuales.',
   alternates: {
-    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/contable/cuadro-de-mando-mensual',
+    canonical: 'https://lngrupoveritas.es/servicios/contable/cuadro-de-mando-mensual',
   },
 };
 

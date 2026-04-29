@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     'Especialistas en desahucios, gestión de contratos de alquiler y conflictos en comunidades de vecinos en Alcalá de Henares y Madrid. Más de 30 años de experiencia.',
   alternates: {
     canonical:
-      'https://ln-grupo-veritas.vercel.app/servicios/juridico/arrendamientos-y-propiedad-horizontal',
+      'https://lngrupoveritas.es/servicios/juridico/arrendamientos-y-propiedad-horizontal',
   },
 };
 

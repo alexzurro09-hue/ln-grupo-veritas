@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Tramitación profesional de altas y modificaciones censales (Modelos 036 y 037) ante la AEAT en Alcalá de Henares. Asegure su cumplimiento desde el inicio.',
   alternates: {
-    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/contable/alta-y-modificaciones-censales',
+    canonical: 'https://lngrupoveritas.es/servicios/contable/alta-y-modificaciones-censales',
   },
 };
 

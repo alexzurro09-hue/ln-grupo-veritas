@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Especialistas en la gestión de tributos laborales: Modelos 111 y 190, retenciones de IRPF y certificados de trabajadores en Alcalá de Henares.',
   alternates: {
-    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/laboral/tributos',
+    canonical: 'https://lngrupoveritas.es/servicios/laboral/tributos',
   },
 };
 

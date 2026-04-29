@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     'Asistencia letrada inmediata en juicios rápidos, diligencias urgentes y asistencia al detenido en Alcalá de Henares. Más de 30 años de defensa penal de urgencia.',
   alternates: {
     canonical:
-      'https://ln-grupo-veritas.vercel.app/servicios/juridico/asistencia-letrada-en-diligencias-urgentes',
+      'https://lngrupoveritas.es/servicios/juridico/asistencia-letrada-en-diligencias-urgentes',
   },
 };
 

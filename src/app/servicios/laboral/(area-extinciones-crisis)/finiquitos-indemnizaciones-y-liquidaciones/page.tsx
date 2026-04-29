@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Especialistas en el cálculo preciso de finiquitos, indemnizaciones por despido y liquidaciones de haberes en Alcalá de Henares. Evite errores y reclamaciones.',
   alternates: {
-    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/laboral/finiquitos-indemnizaciones-y-liquidaciones',
+    canonical: 'https://lngrupoveritas.es/servicios/laboral/finiquitos-indemnizaciones-y-liquidaciones',
   },
 };
 

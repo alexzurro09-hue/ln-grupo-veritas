@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Especialistas en defensa penal y acusación particular en Alcalá de Henares y Madrid. Asistencia al detenido y procesos judiciales con más de 30 años de experiencia.',
   alternates: {
-    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/juridico/defensa-y-acusacion-particular',
+    canonical: 'https://lngrupoveritas.es/servicios/juridico/defensa-y-acusacion-particular',
   },
 };
 

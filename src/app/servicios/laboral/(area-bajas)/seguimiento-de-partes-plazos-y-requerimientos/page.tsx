@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Control exhaustivo de partes de baja, plazos de Seguridad Social y respuesta a requerimientos en Alcalá de Henares. Evite sanciones por descuidos. 30 años de rigor.',
   alternates: {
-    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/laboral/seguimiento-de-partes-plazos-y-requerimientos',
+    canonical: 'https://lngrupoveritas.es/servicios/laboral/seguimiento-de-partes-plazos-y-requerimientos',
   },
 };
 

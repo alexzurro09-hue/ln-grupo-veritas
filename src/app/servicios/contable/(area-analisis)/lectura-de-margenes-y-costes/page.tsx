@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Análisis experto de márgenes de beneficio y control de evolución de costes para empresas en Alcalá de Henares. Optimice su rentabilidad con datos contables reales.',
   alternates: {
-    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/contable/lectura-de-margenes-y-costes',
+    canonical: 'https://lngrupoveritas.es/servicios/contable/lectura-de-margenes-y-costes',
   },
 };
 

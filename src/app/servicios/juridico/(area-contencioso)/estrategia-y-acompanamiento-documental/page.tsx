@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     'Especialistas en la preparación de expedientes administrativos, informes técnicos y estrategia documental en Alcalá de Henares. Más de 30 años de rigor procedimental.',
   alternates: {
     canonical:
-      'https://ln-grupo-veritas.vercel.app/servicios/juridico/estrategia-y-acompanamiento-documental',
+      'https://lngrupoveritas.es/servicios/juridico/estrategia-y-acompanamiento-documental',
   },
 };
 

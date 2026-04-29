@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Expertos en redacción, revisión y negociación de contratos mercantiles en Alcalá de Henares y Madrid. Más de 30 años blindando acuerdos comerciales con rigor y solvencia.',
   alternates: {
-    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/juridico/contratacion-mercantil-y-negociacion',
+    canonical: 'https://lngrupoveritas.es/servicios/juridico/contratacion-mercantil-y-negociacion',
   },
 };
 

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Especialistas en redacción de contratos, reclamaciones de cantidad e incumplimientos contractuales en Alcalá de Henares y Madrid. Más de 30 años de experiencia legal.',
   alternates: {
-    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/juridico/contratos-y-reclamaciones',
+    canonical: 'https://lngrupoveritas.es/servicios/juridico/contratos-y-reclamaciones',
   },
 };
 

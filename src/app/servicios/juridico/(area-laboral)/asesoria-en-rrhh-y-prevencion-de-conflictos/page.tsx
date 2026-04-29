@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     'Consultoría estratégica en RRHH, prevención de conflictos laborales y cumplimiento normativo en Alcalá de Henares. Más de 30 años asesorando al tejido empresarial.',
   alternates: {
     canonical:
-      'https://ln-grupo-veritas.vercel.app/servicios/juridico/asesoria-en-rrhh-y-prevencion-de-conflictos',
+      'https://lngrupoveritas.es/servicios/juridico/asesoria-en-rrhh-y-prevencion-de-conflictos',
   },
 };
 

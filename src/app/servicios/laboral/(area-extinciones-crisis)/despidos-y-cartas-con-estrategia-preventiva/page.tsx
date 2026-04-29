@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Especialistas en la redacción de cartas de despido y estrategia legal preventiva en Alcalá de Henares. Evite la improcedencia con 30 años de experiencia.',
   alternates: {
-    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/laboral/despidos-y-cartas-con-estrategia-preventiva',
+    canonical: 'https://lngrupoveritas.es/servicios/laboral/despidos-y-cartas-con-estrategia-preventiva',
   },
 };
 

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Blindaje preventivo ante la Inspección de Trabajo en Alcalá de Henares. Auditoría y trazabilidad documental para su seguridad jurídica. 30 años de rigor.',
   alternates: {
-    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/laboral/preparacion-de-documentacion-y-trazabilidad',
+    canonical: 'https://lngrupoveritas.es/servicios/laboral/preparacion-de-documentacion-y-trazabilidad',
   },
 };
 

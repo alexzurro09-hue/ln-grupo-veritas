@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Gestión profesional de respuesta a requerimientos y coordinación documental ante la AEAT en Alcalá de Henares. Cumplimiento estricto de plazos y defensa técnica.',
   alternates: {
-    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/contable/respuesta-a-requerimientos-y-coordinacion-documental',
+    canonical: 'https://lngrupoveritas.es/servicios/contable/respuesta-a-requerimientos-y-coordinacion-documental',
   },
 };
 

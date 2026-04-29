@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Asumimos la representación y acompañamiento físico ante la Inspección de Trabajo en Alcalá de Henares. Interlocución técnica para su tranquilidad. 30 años de experiencia.',
   alternates: {
-    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/laboral/interlocucion-y-acompanamiento-fisico',
+    canonical: 'https://lngrupoveritas.es/servicios/laboral/interlocucion-y-acompanamiento-fisico',
   },
 };
 

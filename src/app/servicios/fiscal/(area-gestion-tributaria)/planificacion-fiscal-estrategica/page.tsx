@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Optimice su carga tributaria con una planificación fiscal proactiva y legal. Especialistas en consultoría estratégica para empresas en Alcalá de Henares. Más de 30 años de experiencia.',
   alternates: {
-    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/fiscal/planificacion-fiscal-estrategica',
+    canonical: 'https://lngrupoveritas.es/servicios/fiscal/planificacion-fiscal-estrategica',
   },
 };
 

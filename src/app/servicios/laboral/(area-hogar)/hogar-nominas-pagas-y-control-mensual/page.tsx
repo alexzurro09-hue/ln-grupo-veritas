@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Gestión mensual de nóminas, pagas extras y recibos de Seguridad Social para empleadores de hogar en Alcalá de Henares. Evite conflictos con un control profesional.',
   alternates: {
-    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/laboral/hogar-nominas-pagas-y-control-mensual',
+    canonical: 'https://lngrupoveritas.es/servicios/laboral/hogar-nominas-pagas-y-control-mensual',
   },
 };
 

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Especialistas en la gestión de cotizaciones a la Seguridad Social, SILTRA y Sistema RED en Alcalá de Henares. 30 años de rigor en la gestión de seguros sociales.',
   alternates: {
-    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/laboral/cotizaciones',
+    canonical: 'https://lngrupoveritas.es/servicios/laboral/cotizaciones',
   },
 };
 

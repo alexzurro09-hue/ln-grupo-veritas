@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Especialistas en la redacción de alegaciones y recursos contra actas de inspección de Hacienda en Alcalá de Henares. Defendemos sus intereses con rigor legal.',
   alternates: {
-    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/fiscal/preparacion-de-alegaciones-y-recursos',
+    canonical: 'https://lngrupoveritas.es/servicios/fiscal/preparacion-de-alegaciones-y-recursos',
   },
 };
 

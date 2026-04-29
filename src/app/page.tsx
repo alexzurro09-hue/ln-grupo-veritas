@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { Phone, Mail, Scale, ShieldCheck, Users, BarChart3, MapPin, Clock } from 'lucide-react';
+import { Phone, Mail, Scale, ShieldCheck, Users, BarChart3, MapPin, Clock, User } from 'lucide-react';
 
 const PHONE = '918 86 66 94';
 const PHONE_HREF = 'tel:918866694';
@@ -71,6 +71,26 @@ export default function HomePage() {
             </motion.div>
           </section>
 
+          <section className="bg-veritas-cream border-b border-veritas-green/10">
+            <div className="p-8 md:p-10">
+              <div className="flex items-end justify-between gap-6">
+                <div>
+                  <h2 className="font-serif text-[20px] md:text-[22px] font-bold text-veritas-green">
+                    Socios Directores
+                  </h2>
+                  <p className="mt-2 text-[13px] leading-relaxed text-veritas-gray max-w-[62ch]">
+                    Liderazgo dual, presencia paritaria y una misma exigencia: rigor, cercanía y continuidad.
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <LeaderCard name="Luis Ángel Zurro" role="Socio Director" />
+                <LeaderCard name="Noelia Furones" role="Socia Directora" />
+              </div>
+            </div>
+          </section>
+
           <section className="bg-white grid grid-cols-1 md:grid-cols-4 p-10 gap-5">
             <HighlightCard
               href="/servicios/juridico"
@@ -100,20 +120,6 @@ export default function HomePage() {
         </div>
 
         <aside className="bg-white flex flex-col">
-          <div className="h-[300px] relative overflow-hidden bg-veritas-red">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="https://images.unsplash.com/photo-1556157382-9793f77543c2?auto=format&fit=crop&q=80&w=400"
-              className="w-full h-full object-cover opacity-85 grayscale-[20%]"
-              alt="Luis Ángel Zurro"
-              referrerPolicy="no-referrer"
-            />
-            <div className="absolute bottom-0 left-0 right-0 bg-veritas-red p-4 text-white">
-              <div className="font-serif text-lg font-bold">Luis Ángel Zurro</div>
-              <div className="text-[11px] opacity-80 uppercase tracking-widest">Socio Director</div>
-            </div>
-          </div>
-
           <div className="p-6 md:p-8">
             <div className="flex flex-col gap-3 lg:sticky lg:top-[160px]">
               <h2 className="font-serif text-[18px] font-bold text-veritas-green">Información Institucional</h2>
@@ -182,6 +188,34 @@ export default function HomePage() {
       </footer>
       */}
     </>
+  );
+}
+
+function LeaderCard({ name, role }: { name: string; role: string }) {
+  return (
+    <div className="bg-white border border-stone-100 shadow-[0_10px_24px_rgba(0,0,0,0.06)] overflow-hidden">
+      <motion.div
+        whileHover={{ y: -5 }}
+        transition={{ type: 'spring', stiffness: 260, damping: 22 }}
+        className="relative bg-veritas-red aspect-[4/3] overflow-hidden"
+      >
+        <div className="absolute inset-0 grid place-items-center text-white/90">
+          <div className="flex flex-col items-center gap-3">
+            <div className="w-12 h-12 rounded-full border border-white/40 bg-white/10 grid place-items-center">
+              <User size={22} strokeWidth={1.5} />
+            </div>
+            <div className="text-[11px] tracking-[0.22em] uppercase font-sans text-white/85">Imagen próximamente</div>
+          </div>
+        </div>
+      </motion.div>
+
+      <div className="p-6">
+        <div className="font-serif text-[18px] md:text-[20px] font-bold text-veritas-green leading-tight">
+          {name}
+        </div>
+        <div className="mt-2 text-[11px] uppercase tracking-[0.28em] font-sans text-veritas-gray">{role}</div>
+      </div>
+    </div>
   );
 }
 

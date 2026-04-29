@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Localizamos y gestionamos ayudas, subvenciones y bonificaciones para autónomos y emprendedores en Alcalá de Henares. Más de 30 años maximizando su ahorro y liquidez.',
   alternates: {
-    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/fiscal/subvenciones-y-bonificaciones',
+    canonical: 'https://lngrupoveritas.es/servicios/fiscal/subvenciones-y-bonificaciones',
   },
 };
 

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Especialistas en diseño de estrategias de defensa y negociación de conformidades en procesos penales en Alcalá de Henares y Madrid. Más de 30 años de éxito procesal.',
   alternates: {
-    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/juridico/estrategia-procesal-y-negociacion',
+    canonical: 'https://lngrupoveritas.es/servicios/juridico/estrategia-procesal-y-negociacion',
   },
 };
 

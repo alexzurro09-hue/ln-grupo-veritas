@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Especialistas en defensa y acusación en estafas, apropiación indebida y administración desleal en Alcalá de Henares. Más de 30 años de rigor en derecho penal económico.',
   alternates: {
-    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/juridico/delitos-economicos-y-patrimoniales',
+    canonical: 'https://lngrupoveritas.es/servicios/juridico/delitos-economicos-y-patrimoniales',
   },
 };
 

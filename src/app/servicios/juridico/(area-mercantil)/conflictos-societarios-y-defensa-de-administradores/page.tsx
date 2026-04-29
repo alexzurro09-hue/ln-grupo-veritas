@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     'Especialistas en resolución de pleitos entre socios, impugnación de acuerdos y defensa de administradores en Alcalá de Henares. Más de 30 años protegiendo su patrimonio y empresa.',
   alternates: {
     canonical:
-      'https://ln-grupo-veritas.vercel.app/servicios/juridico/conflictos-societarios-y-defensa-de-administradores',
+      'https://lngrupoveritas.es/servicios/juridico/conflictos-societarios-y-defensa-de-administradores',
   },
 };
 

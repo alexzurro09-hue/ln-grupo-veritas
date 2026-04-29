@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     'Expertos en gestión de la Seguridad Social para autónomos (RETA). Cambio de bases de cotización por ingresos reales y variaciones de actividad en Alcalá de Henares.',
   alternates: {
     canonical:
-      'https://ln-grupo-veritas.vercel.app/servicios/fiscal/gestion-de-reta-y-variaciones-de-actividad',
+      'https://lngrupoveritas.es/servicios/fiscal/gestion-de-reta-y-variaciones-de-actividad',
   },
 };
 

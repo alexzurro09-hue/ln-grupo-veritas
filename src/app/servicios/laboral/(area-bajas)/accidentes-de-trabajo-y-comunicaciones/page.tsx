@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Especialistas en la comunicación de accidentes de trabajo (DELTA/CoNTA) y coordinación con Mutuas en Alcalá de Henares. Evite sanciones por retrasos. 30 años de experiencia.',
   alternates: {
-    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/laboral/accidentes-de-trabajo-y-comunicaciones',
+    canonical: 'https://lngrupoveritas.es/servicios/laboral/accidentes-de-trabajo-y-comunicaciones',
   },
 };
 

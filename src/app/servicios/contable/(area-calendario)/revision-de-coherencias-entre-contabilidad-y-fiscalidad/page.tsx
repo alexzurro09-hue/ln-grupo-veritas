@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     'Especialistas en la revisión de coherencias entre contabilidad y fiscalidad en Alcalá de Henares. Evite inspecciones por descuadres entre sus libros e impuestos.',
   alternates: {
     canonical:
-      'https://ln-grupo-veritas.vercel.app/servicios/contable/revision-de-coherencias-entre-contabilidad-y-fiscalidad',
+      'https://lngrupoveritas.es/servicios/contable/revision-de-coherencias-entre-contabilidad-y-fiscalidad',
   },
 };
 

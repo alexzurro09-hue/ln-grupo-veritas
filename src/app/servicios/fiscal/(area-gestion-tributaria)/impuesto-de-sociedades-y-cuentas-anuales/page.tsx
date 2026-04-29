@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     'Especialistas en la liquidación del Impuesto de Sociedades y elaboración de Cuentas Anuales en Alcalá de Henares. 30 años garantizando rigor contable y fiscal.',
   alternates: {
     canonical:
-      'https://ln-grupo-veritas.vercel.app/servicios/fiscal/impuesto-de-sociedades-y-cuentas-anuales',
+      'https://lngrupoveritas.es/servicios/fiscal/impuesto-de-sociedades-y-cuentas-anuales',
   },
 };
 

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     'Analizamos el coste real de contratación y localizamos todas las bonificaciones disponibles para su empresa en Alcalá de Henares. Seguridad financiera para su crecimiento.',
   alternates: {
     canonical:
-      'https://ln-grupo-veritas.vercel.app/servicios/laboral/estudios-de-coste-previo-y-bonificaciones',
+      'https://lngrupoveritas.es/servicios/laboral/estudios-de-coste-previo-y-bonificaciones',
   },
 };
 

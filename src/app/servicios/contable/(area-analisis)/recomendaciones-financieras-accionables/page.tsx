@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Consultoría financiera basada en datos reales para empresas en Alcalá de Henares. Traducimos su contabilidad en decisiones estratégicas accionables.',
   alternates: {
-    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/contable/recomendaciones-financieras-accionables',
+    canonical: 'https://lngrupoveritas.es/servicios/contable/recomendaciones-financieras-accionables',
   },
 };
 

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Especialistas en redacción de contratos de trabajo, gestión de prórrogas y modificaciones sustanciales de condiciones en Alcalá de Henares. 30 años de rigor legal.',
   alternates: {
-    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/laboral/contratos-prorrogas-y-modificaciones',
+    canonical: 'https://lngrupoveritas.es/servicios/laboral/contratos-prorrogas-y-modificaciones',
   },
 };
 

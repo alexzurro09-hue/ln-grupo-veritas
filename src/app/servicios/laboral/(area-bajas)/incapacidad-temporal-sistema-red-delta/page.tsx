@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Especialistas en la gestión de bajas médicas e incapacidad temporal (IT) a través de Sistema RED y DELTA en Alcalá de Henares. 30 años de control laboral.',
   alternates: {
-    canonical: 'https://lngrupoveritas.es/servicios/laboral/incapacidad-temporal-sistema-red-delta',
+    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/laboral/incapacidad-temporal-sistema-red-delta',
   },
 };
 

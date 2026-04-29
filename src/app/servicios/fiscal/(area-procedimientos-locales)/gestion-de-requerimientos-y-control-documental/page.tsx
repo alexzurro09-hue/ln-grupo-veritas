@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     'Expertos en la respuesta a requerimientos de Hacienda y gestión documental fiscal en Alcalá de Henares. Evite sanciones por errores formales. 30 años de rigor.',
   alternates: {
     canonical:
-      'https://lngrupoveritas.es/servicios/fiscal/gestion-de-requerimientos-y-control-documental',
+      'https://ln-grupo-veritas.vercel.app/servicios/fiscal/gestion-de-requerimientos-y-control-documental',
   },
 };
 

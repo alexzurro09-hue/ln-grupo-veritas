@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     'Planifique su jubilación y asegure sus prestaciones con expertos. Cálculo de pensiones e incapacidades para autónomos en Alcalá de Henares. 30 años protegiendo su futuro.',
   alternates: {
     canonical:
-      'https://lngrupoveritas.es/servicios/fiscal/prestaciones-y-planificacion-de-jubilacion',
+      'https://ln-grupo-veritas.vercel.app/servicios/fiscal/prestaciones-y-planificacion-de-jubilacion',
   },
 };
 

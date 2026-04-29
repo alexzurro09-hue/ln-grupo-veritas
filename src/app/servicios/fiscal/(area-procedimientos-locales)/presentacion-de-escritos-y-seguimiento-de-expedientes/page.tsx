@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     'Expertos en redacción de alegaciones, presentación de escritos y seguimiento exhaustivo de expedientes administrativos en Alcalá de Henares. 30 años de rigor técnico.',
   alternates: {
     canonical:
-      'https://lngrupoveritas.es/servicios/fiscal/presentacion-de-escritos-y-seguimiento-de-expedientes',
+      'https://ln-grupo-veritas.vercel.app/servicios/fiscal/presentacion-de-escritos-y-seguimiento-de-expedientes',
   },
 };
 

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     'Expertos en la gestión de modelos informativos (347, 180, 190) y altas/variaciones censales en Alcalá de Henares. Evite errores de cruce de datos con Hacienda.',
   alternates: {
     canonical:
-      'https://lngrupoveritas.es/servicios/fiscal/declaraciones-informativas-y-censales',
+      'https://ln-grupo-veritas.vercel.app/servicios/fiscal/declaraciones-informativas-y-censales',
   },
 };
 

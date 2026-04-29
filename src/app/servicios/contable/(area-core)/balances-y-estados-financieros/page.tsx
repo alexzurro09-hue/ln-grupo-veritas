@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Especialistas en la elaboración de Balances de Situación, Sumas y Saldos, y Cuentas de Pérdidas y Ganancias en Alcalá de Henares. Claridad financiera para su negocio.',
   alternates: {
-    canonical: 'https://lngrupoveritas.es/servicios/contable/balances-y-estados-financieros',
+    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/contable/balances-y-estados-financieros',
   },
 };
 

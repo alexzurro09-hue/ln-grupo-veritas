@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     'Actuamos como su interlocutor técnico ante la AEAT. Gestión de visitas, requerimientos y respuestas durante inspecciones fiscales en Alcalá de Henares.',
   alternates: {
     canonical:
-      'https://lngrupoveritas.es/servicios/fiscal/interlocucion-con-aeat-y-coordinacion-de-respuestas',
+      'https://ln-grupo-veritas.vercel.app/servicios/fiscal/interlocucion-con-aeat-y-coordinacion-de-respuestas',
   },
 };
 

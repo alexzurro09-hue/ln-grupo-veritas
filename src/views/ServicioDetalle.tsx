@@ -31,7 +31,7 @@ export default function ServicioDetalle() {
     : sub?.summary ??
       `Asesoramiento especializado en ${serviceTitle}. Rigor técnico, método y acompañamiento profesional en LN Grupo Veritas.`;
   const canonicalHref = isContratosReclamaciones
-    ? 'https://lngrupoveritas.es/servicios/juridico/contratos-y-reclamaciones'
+    ? 'https://ln-grupo-veritas.vercel.app/servicios/juridico/contratos-y-reclamaciones'
     : null;
 
   if (!categoryKey || !serviceSlug) {

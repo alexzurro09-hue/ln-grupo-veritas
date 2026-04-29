@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     'Estrategias para el cierre de inspecciones fiscales y reducción de sanciones en Alcalá de Henares. Logre el acuerdo más favorable con Hacienda. 30 años de experiencia.',
   alternates: {
     canonical:
-      'https://lngrupoveritas.es/servicios/fiscal/plan-de-regularizacion-y-minimizacion-de-impacto',
+      'https://ln-grupo-veritas.vercel.app/servicios/fiscal/plan-de-regularizacion-y-minimizacion-de-impacto',
   },
 };
 

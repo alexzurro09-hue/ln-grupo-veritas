@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Especialistas en gestión de IVA, operaciones intracomunitarias y regímenes especiales para empresas en Alcalá de Henares. Más de 30 años de rigor tributario.',
   alternates: {
-    canonical: 'https://lngrupoveritas.es/servicios/fiscal/iva-y-regimenes-especiales',
+    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/fiscal/iva-y-regimenes-especiales',
   },
 };
 

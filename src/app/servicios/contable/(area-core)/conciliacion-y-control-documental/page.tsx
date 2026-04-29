@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Especialistas en conciliación bancaria y control documental contable en Alcalá de Henares. Aseguramos el orden, el criterio y la consistencia de su información.',
   alternates: {
-    canonical: 'https://lngrupoveritas.es/servicios/contable/conciliacion-y-control-documental',
+    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/contable/conciliacion-y-control-documental',
   },
 };
 

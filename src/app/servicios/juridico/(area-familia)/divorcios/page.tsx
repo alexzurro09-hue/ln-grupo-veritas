@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     'Especialistas en divorcios de mutuo acuerdo y contenciosos en Alcalá de Henares. Protegemos sus intereses y los de su familia con 30 años de experiencia jurídica.',
   alternates: {
-    canonical: 'https://lngrupoveritas.es/servicios/juridico/divorcios',
+    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/juridico/divorcios',
   },
 };
 

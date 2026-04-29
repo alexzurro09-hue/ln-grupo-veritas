@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     'Especialistas en gestión de herencias, redacción de testamentos y optimización fiscal sucesoria en Alcalá de Henares y Madrid. Más de 30 años de experiencia legal.',
   alternates: {
     canonical:
-      'https://lngrupoveritas.es/servicios/juridico/sucesiones-herencias-y-planificacion-patrimonial',
+      'https://ln-grupo-veritas.vercel.app/servicios/juridico/sucesiones-herencias-y-planificacion-patrimonial',
   },
 };
 

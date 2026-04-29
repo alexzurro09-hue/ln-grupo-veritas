@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Especialistas en desahucios, impugnación de despidos, sanciones y redacción de contratos laborales en Alcalá de Henares. Más de 30 años de experiencia en derecho laboral.',
   alternates: {
-    canonical: 'https://lngrupoveritas.es/servicios/juridico/contratacion-despidos-y-sanciones',
+    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/juridico/contratacion-despidos-y-sanciones',
   },
 };
 

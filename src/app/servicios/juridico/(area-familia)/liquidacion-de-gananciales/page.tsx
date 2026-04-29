@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     'Especialistas en liquidación de sociedades de gananciales y reparto de patrimonio matrimonial en Alcalá de Henares. Asesoramiento jurídico y fiscal experto.',
   alternates: {
-    canonical: 'https://lngrupoveritas.es/servicios/juridico/liquidacion-de-gananciales',
+    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/juridico/liquidacion-de-gananciales',
   },
 };
 

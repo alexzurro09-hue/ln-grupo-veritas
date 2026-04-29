@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Especialistas en la respuesta técnica a requerimientos y alegaciones ante actas de infracción de la Inspección de Trabajo en Alcalá de Henares. 30 años de defensa legal.',
   alternates: {
-    canonical: 'https://lngrupoveritas.es/servicios/laboral/respuesta-a-requerimientos-y-actas',
+    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/laboral/respuesta-a-requerimientos-y-actas',
   },
 };
 

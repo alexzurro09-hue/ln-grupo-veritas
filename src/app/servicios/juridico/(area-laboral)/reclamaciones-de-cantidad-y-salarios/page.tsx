@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     'Especialistas en reclamación de nóminas impagadas, finiquitos, horas extraordinarias y diferencias salariales en Alcalá de Henares. Más de 30 años de éxito legal.',
   alternates: {
     canonical:
-      'https://lngrupoveritas.es/servicios/juridico/reclamaciones-de-cantidad-y-salarios',
+      'https://ln-grupo-veritas.vercel.app/servicios/juridico/reclamaciones-de-cantidad-y-salarios',
   },
 };
 

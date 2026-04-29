@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Gestión técnica en Contrat@, Delt@ y sistemas oficiales en Alcalá de Henares. Aseguramos la validez legal de sus trámites laborales. 30 años de rigor.',
   alternates: {
-    canonical: 'https://lngrupoveritas.es/servicios/laboral/comunicacion-y-registro-en-sistemas-oficiales',
+    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/laboral/comunicacion-y-registro-en-sistemas-oficiales',
   },
 };
 

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     '¿Vas a emprender? Gestionamos tu alta de autónomo, capitalización del paro y bonificaciones en Alcalá de Henares. Empieza con seguridad legal y fiscal.',
   alternates: {
     canonical:
-      'https://lngrupoveritas.es/servicios/fiscal/alta-y-asesoramiento-inicial-a-emprendedores',
+      'https://ln-grupo-veritas.vercel.app/servicios/fiscal/alta-y-asesoramiento-inicial-a-emprendedores',
   },
 };
 

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Especialistas en la confección de nóminas, pagas extra y liquidaciones en Alcalá de Henares. 30 años garantizando precisión y puntualidad para su empresa.',
   alternates: {
-    canonical: 'https://lngrupoveritas.es/servicios/laboral/nominas',
+    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/laboral/nominas',
   },
 };
 

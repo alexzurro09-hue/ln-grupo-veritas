@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Especialistas en recursos contra sanciones, obtención de licencias y gestión de procedimientos ante la Administración en Alcalá de Henares. Más de 30 años de rigor legal.',
   alternates: {
-    canonical: 'https://lngrupoveritas.es/servicios/juridico/sanciones-licencias-y-procedimientos',
+    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/juridico/sanciones-licencias-y-procedimientos',
   },
 };
 

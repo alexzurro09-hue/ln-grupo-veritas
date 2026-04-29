@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     'Defensa técnica y acompañamiento profesional en inspecciones de la AEAT y procedimientos de gestión en Alcalá de Henares. Más de 30 años de experiencia.',
   alternates: {
     canonical:
-      'https://lngrupoveritas.es/servicios/contable/asistencia-en-inspecciones-y-procedimientos-de-gestion',
+      'https://ln-grupo-veritas.vercel.app/servicios/contable/asistencia-en-inspecciones-y-procedimientos-de-gestion',
   },
 };
 

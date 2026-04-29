@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Gestión integral de altas, contratos y bajas de empleadas de hogar en Alcalá de Henares. Seguridad social para su familia sin complicaciones.',
   alternates: {
-    canonical: 'https://lngrupoveritas.es/servicios/laboral/hogar-alta-modificaciones-y-bajas',
+    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/laboral/hogar-alta-modificaciones-y-bajas',
   },
 };
 

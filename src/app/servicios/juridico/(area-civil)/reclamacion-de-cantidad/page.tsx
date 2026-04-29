@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Especialistas en reclamación de deudas, impagados y procedimientos declarativos en Alcalá de Henares y Madrid. Más de 30 años recuperando su solvencia.',
   alternates: {
-    canonical: 'https://lngrupoveritas.es/servicios/juridico/reclamacion-de-cantidad',
+    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/juridico/reclamacion-de-cantidad',
   },
 };
 

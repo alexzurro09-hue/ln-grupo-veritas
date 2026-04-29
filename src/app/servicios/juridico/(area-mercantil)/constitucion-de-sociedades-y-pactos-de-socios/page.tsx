@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     'Especialistas en creación de empresas, redacción de pactos de socios y asesoramiento mercantil en Alcalá de Henares y Madrid. Proteja su inversión con más de 30 años de experiencia.',
   alternates: {
     canonical:
-      'https://lngrupoveritas.es/servicios/juridico/constitucion-de-sociedades-y-pactos-de-socios',
+      'https://ln-grupo-veritas.vercel.app/servicios/juridico/constitucion-de-sociedades-y-pactos-de-socios',
   },
 };
 

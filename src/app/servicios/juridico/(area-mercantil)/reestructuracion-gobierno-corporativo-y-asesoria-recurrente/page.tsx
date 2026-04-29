@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     'Especialistas en reestructuración societaria, gobierno corporativo y asesoría jurídica recurrente para empresas en Alcalá de Henares. Más de 30 años garantizando la continuidad de su negocio.',
   alternates: {
     canonical:
-      'https://lngrupoveritas.es/servicios/juridico/reestructuracion-gobierno-corporativo-y-asesoria-recurrente',
+      'https://ln-grupo-veritas.vercel.app/servicios/juridico/reestructuracion-gobierno-corporativo-y-asesoria-recurrente',
   },
 };
 

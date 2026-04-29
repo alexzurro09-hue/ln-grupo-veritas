@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     'Especialistas en conciliación ante el SMAC y representación técnica en los Juzgados de lo Social en Alcalá de Henares y Madrid. Más de 30 años de experiencia procesal.',
   alternates: {
     canonical:
-      'https://lngrupoveritas.es/servicios/juridico/representacion-en-smac-y-jurisdiccion-social',
+      'https://ln-grupo-veritas.vercel.app/servicios/juridico/representacion-en-smac-y-jurisdiccion-social',
   },
 };
 

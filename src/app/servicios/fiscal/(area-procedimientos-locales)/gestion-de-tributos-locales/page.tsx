@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Especialistas en gestión de IBI, Plusvalía municipal e IAE en Alcalá de Henares. Revisión de valores y reclamación de ingresos indebidos. 30 años de éxito.',
   alternates: {
-    canonical: 'https://lngrupoveritas.es/servicios/fiscal/gestion-de-tributos-locales',
+    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/fiscal/gestion-de-tributos-locales',
   },
 };
 

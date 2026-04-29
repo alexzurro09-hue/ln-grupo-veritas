@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Especialistas en la tramitación de expedientes de regulación de empleo (ERE y ERTE) y coordinación con el SEPE en Alcalá de Henares. 30 años de solvencia técnica.',
   alternates: {
-    canonical: 'https://lngrupoveritas.es/servicios/laboral/eres-ertes-y-coordinacion-con-sepe',
+    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/laboral/eres-ertes-y-coordinacion-con-sepe',
   },
 };
 

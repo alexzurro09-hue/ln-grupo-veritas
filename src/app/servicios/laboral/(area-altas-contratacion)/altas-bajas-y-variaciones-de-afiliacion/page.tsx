@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     'Gestión ágil de altas, bajas y variaciones de trabajadores ante la Seguridad Social en Alcalá de Henares. 30 años de eficacia en afiliación.',
   alternates: {
     canonical:
-      'https://lngrupoveritas.es/servicios/laboral/altas-bajas-y-variaciones-de-afiliacion',
+      'https://ln-grupo-veritas.vercel.app/servicios/laboral/altas-bajas-y-variaciones-de-afiliacion',
   },
 };
 

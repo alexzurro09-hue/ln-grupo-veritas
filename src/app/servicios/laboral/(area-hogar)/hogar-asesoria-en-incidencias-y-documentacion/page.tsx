@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Especialistas en la resolución de incidencias, bajas y despidos (desistimiento) de empleados de hogar en Alcalá de Henares. 30 años protegiendo su hogar.',
   alternates: {
-    canonical: 'https://lngrupoveritas.es/servicios/laboral/hogar-asesoria-en-incidencias-y-documentacion',
+    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/laboral/hogar-asesoria-en-incidencias-y-documentacion',
   },
 };
 

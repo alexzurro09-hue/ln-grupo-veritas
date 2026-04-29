@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     'Especialistas en recursos administrativos, reclamaciones ante la administración y responsabilidad patrimonial en Alcalá de Henares. Más de 30 años de experiencia técnica.',
   alternates: {
     canonical:
-      'https://lngrupoveritas.es/servicios/juridico/recursos-administrativos-y-reclamaciones',
+      'https://ln-grupo-veritas.vercel.app/servicios/juridico/recursos-administrativos-y-reclamaciones',
   },
 };
 

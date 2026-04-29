@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Especialistas en mediación laboral, conciliaciones ante el SMAC y resolución de conflictos en Alcalá de Henares. 30 años transformando disputas en soluciones legales.',
   alternates: {
-    canonical: 'https://lngrupoveritas.es/servicios/laboral/negociacion-y-acompanamiento-en-conflictos',
+    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/laboral/negociacion-y-acompanamiento-en-conflictos',
   },
 };
 

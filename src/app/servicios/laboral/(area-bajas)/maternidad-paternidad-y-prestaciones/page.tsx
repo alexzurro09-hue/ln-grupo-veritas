@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Especialistas en la tramitación de prestaciones por nacimiento, cuidado de menor y riesgos durante el embarazo en Alcalá de Henares. 30 años de rigor y soporte laboral.',
   alternates: {
-    canonical: 'https://lngrupoveritas.es/servicios/laboral/maternidad-paternidad-y-prestaciones',
+    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/laboral/maternidad-paternidad-y-prestaciones',
   },
 };
 

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Especialistas en recursos contencioso-administrativos ante los tribunales. Defensa técnica frente a la Administración Pública en Alcalá de Henares y Madrid.',
   alternates: {
-    canonical: 'https://lngrupoveritas.es/servicios/juridico/defensa-contencioso-administrativa',
+    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/juridico/defensa-contencioso-administrativa',
   },
 };
 

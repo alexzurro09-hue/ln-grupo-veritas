@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Control de desviaciones presupuestarias y modelización de escenarios financieros para empresas en Alcalá de Henares. Anticipación estratégica para su negocio.',
   alternates: {
-    canonical: 'https://lngrupoveritas.es/servicios/contable/alertas-de-desviaciones-y-escenarios',
+    canonical: 'https://ln-grupo-veritas.vercel.app/servicios/contable/alertas-de-desviaciones-y-escenarios',
   },
 };
 

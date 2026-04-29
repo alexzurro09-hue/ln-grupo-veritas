@@ -1,10 +1,9 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 import {
   Building2,
-  ChevronDown,
   ChevronRight,
   FileSpreadsheet,
   Landmark,
@@ -28,52 +27,167 @@ const item = {
   show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.2, 0.9, 0.2, 1] as [number, number, number, number] } },
 };
 
-function Pill({ children }: { children: React.ReactNode }) {
+const contableAreas = [
+  {
+    title: 'Gestión Contable Core',
+    subtitle: 'Orden matemático y trazabilidad: alta, registro y cierres con visión de cumplimiento.',
+    Icon: FileSpreadsheet,
+    items: [
+      {
+        label: 'Alta y modificaciones censales (Modelo 036 / 037)',
+        href: '/servicios/contable/alta-y-modificaciones-censales',
+      },
+      {
+        label: 'Balance de Situación, Sumas y Saldos, y Pérdidas y Ganancias',
+        href: '/servicios/contable/balances-y-estados-financieros',
+      },
+      {
+        label: 'Conciliación y control documental (criterio y consistencia)',
+        href: '/servicios/contable/conciliacion-y-control-documental',
+      },
+      {
+        label: 'Cuadro de mando básico para seguimiento mensual',
+        href: '/servicios/contable/cuadro-de-mando-mensual',
+      },
+    ],
+  },
+  {
+    title: 'Calendario Tributario de Sociedades',
+    subtitle: 'Un sistema claro de obligaciones para evitar retrasos, recargos y requerimientos.',
+    Icon: Building2,
+    items: [
+      {
+        label: 'Preparación y presentación con soporte documental',
+        href: '/servicios/contable/preparacion-y-presentacion-con-soporte-documental',
+      },
+      {
+        label: 'Revisión de coherencias entre contabilidad y fiscalidad',
+        href: '/servicios/contable/revision-de-coherencias-entre-contabilidad-y-fiscalidad',
+      },
+      {
+        label: 'Seguimiento de notificaciones y requerimientos',
+        href: '/servicios/contable/seguimiento-de-notificaciones-y-requerimientos',
+      },
+    ],
+    pills: ['036 / 037', '200', '202', '303', '111 / 190', '115 / 180', '347', '349', '390'],
+  },
+  {
+    title: 'Cumplimiento Mercantil (Blindaje Legal)',
+    subtitle: 'Cuentas Anuales y Libros Oficiales en orden: seguridad jurídica y reputación mercantil.',
+    Icon: Landmark,
+    items: [
+      { label: 'Registro Mercantil', href: '/servicios/contable/registro-mercantil-cuentas-y-libros' },
+      { label: 'Gobernanza Documental', href: '/servicios/contable/gobernanza-documental-y-evidencias' },
+    ],
+  },
+  {
+    title: 'Análisis Financiero y Futuro',
+    subtitle: 'Informe Trimestral para anticipar riesgos, optimizar tesorería y tomar decisiones con contexto.',
+    Icon: TrendingUp,
+    items: [
+      { label: 'Lectura de márgenes y evolución de costes', href: '/servicios/contable/lectura-de-margenes-y-costes' },
+      { label: 'Alertas de desviaciones y escenarios', href: '/servicios/contable/alertas-de-desviaciones-y-escenarios' },
+      {
+        label: 'Recomendaciones accionables (no solo números)',
+        href: '/servicios/contable/recomendaciones-financieras-accionables',
+      },
+    ],
+  },
+  {
+    title: 'Representación ante Hacienda (Socio Defensor)',
+    subtitle:
+      'Defensa técnica y acompañamiento: derechos contables, documentación ordenada y estrategia para responder con solvencia.',
+    Icon: ShieldCheck,
+    items: [
+      {
+        label: 'Preparación y revisión de soportes contables y mercantiles',
+        href: '/servicios/contable/preparacion-y-revision-de-soportes-contables-y-mercantiles',
+      },
+      {
+        label: 'Respuesta a requerimientos y coordinación documental',
+        href: '/servicios/contable/respuesta-a-requerimientos-y-coordinacion-documental',
+      },
+      {
+        label: 'Asistencia en inspecciones y procedimientos de gestión',
+        href: '/servicios/contable/asistencia-en-inspecciones-y-procedimientos-de-gestion',
+      },
+      {
+        label: 'Defensa de derechos y recursos administrativos',
+        href: '/servicios/contable/defensa-de-derechos-y-recursos-administrativos',
+      },
+    ],
+  },
+] as const;
+
+function ActionRow({ href, children }: { href: string; children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center px-3 py-1 rounded-sm bg-gray-100 text-[#2f2f2f] text-[11px] font-medium tracking-wide border border-stone-200">
-      {children}
-    </span>
-  );
-}
-
-function ActionRow({ href, children }: { href?: string; children: React.ReactNode }) {
-  const className =
-    'group flex items-center justify-between gap-4 py-3 px-4 rounded-md hover:bg-stone-100/50 transition-all duration-200';
-
-  const content = (
-    <>
-      <span className="text-[13px] leading-relaxed text-[#333] font-sans transition-transform duration-200 group-hover:translate-x-1">
+    <Link
+      href={href}
+      className="group flex items-center justify-between py-2 px-2 md:px-0 border-t border-stone-100 first:border-t-0 hover:bg-stone-50 transition-colors cursor-pointer"
+    >
+      <span className="text-xs md:text-sm leading-snug text-stone-700 font-sans transition-transform duration-200 group-hover:translate-x-1">
         {children}
       </span>
-      <ChevronRight
-        size={16}
-        className="shrink-0 text-[#8b4c39] transition-colors duration-200 group-hover:text-[#a03621]"
-      />
-    </>
-  );
-
-  if (!href) {
-    return <div className={className}>{content}</div>;
-  }
-
-  return (
-    <Link href={href} className={className}>
-      {content}
+      <ChevronRight size={12} className="shrink-0 ml-3 text-stone-400 transition-colors duration-200 group-hover:text-veritas-red" />
     </Link>
   );
 }
 
-export default function ServiciosContable() {
-  const [open, setOpen] = useState(false);
+function ServiceMatrixRow({
+  title,
+  subtitle,
+  Icon,
+  items,
+  pills,
+  isFirst,
+}: {
+  title: string;
+  subtitle: string;
+  Icon: React.ComponentType<{ size?: number; strokeWidth?: number; className?: string }>;
+  items: { label: string; href: string }[];
+  pills?: readonly string[];
+  isFirst: boolean;
+}) {
+  return (
+    <motion.section variants={item} className={`py-6 md:py-8 px-4 md:px-10 ${isFirst ? '' : 'border-t-2 border-stone-200'}`}>
+      <div className="flex flex-col gap-5">
+        <div className="pb-3 border-b border-stone-300">
+          <div className="flex items-center gap-3 text-stone-900">
+            <Icon size={18} strokeWidth={1.7} className="text-veritas-green/70" />
+            <h2 className="font-serif text-lg md:text-2xl font-bold mb-1">{title}</h2>
+          </div>
+          <p className="mt-1 text-[13px] md:text-sm text-stone-600 font-sans leading-snug">{subtitle}</p>
+        </div>
 
-  const models = useMemo(
-    () => ['036 / 037', '200', '202', '303', '111 / 190', '115 / 180', '347', '349', '390'],
-    [],
+        <div>
+          {items.map((it) => (
+            <ActionRow key={it.href} href={it.href}>
+              {it.label}
+            </ActionRow>
+          ))}
+        </div>
+
+        {pills && (
+          <div className="pt-2 flex flex-wrap gap-2">
+            {pills.map((m) => (
+              <span
+                key={m}
+                className="inline-flex items-center px-2 py-1 rounded-none bg-gray-100 text-stone-700 text-[10px] font-medium tracking-wide border border-stone-200"
+              >
+                Modelo {m}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+    </motion.section>
   );
+}
 
+export default function ServiciosContable() {
   return (
     <>
-      <div className="bg-[#f5f5f1] border-b border-veritas-green/10">
+      <div className="bg-[#f5f5f1] border-b border-veritas-green/10 w-full max-w-full overflow-x-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-10 py-12 md:py-16">
           <div className="max-w-3xl">
             <div className="text-[10px] uppercase tracking-[0.34em] text-veritas-green/70 font-bold">Integridad financiera</div>
@@ -89,253 +203,33 @@ export default function ServiciosContable() {
             variants={container}
             initial="hidden"
             animate="show"
-            className="mt-10 md:mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch"
+            className="mt-10 md:mt-12 bg-white rounded-none border border-stone-200 overflow-hidden divide-y divide-stone-200 w-full max-w-full"
           >
-            {/* Module 1 */}
-            <motion.section
-              variants={item}
-              whileHover={{ y: -4 }}
-              className="group flex flex-col bg-white rounded-none border border-stone-100 shadow-[0_10px_24px_rgba(0,0,0,0.08)] hover:shadow-[0_14px_30px_rgba(0,0,0,0.10)] transition-shadow p-6 md:p-7"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h2 className="font-serif font-bold text-[18px] md:text-[20px] text-[#1b3022]">
-                    Gestión Contable Core
-                  </h2>
-                  <p className="mt-2 text-[13px] text-[#333] font-sans leading-relaxed">
-                    Orden matemático y trazabilidad: alta, registro y cierres con visión de cumplimiento.
-                  </p>
-                </div>
-                <div className="text-stone-400 transition-colors group-hover:text-veritas-red">
-                  <FileSpreadsheet size={22} strokeWidth={1.6} />
-                </div>
-              </div>
+            {contableAreas.map((area, idx) => (
+              <ServiceMatrixRow
+                key={area.title}
+                title={area.title}
+                subtitle={area.subtitle}
+                Icon={area.Icon}
+                items={[...area.items]}
+                pills={'pills' in area ? area.pills : undefined}
+                isFirst={idx === 0}
+              />
+            ))}
 
-              <ul className="mt-5 flex-1 list-none text-[13px] leading-relaxed text-[#333] font-sans divide-y divide-stone-100">
-                <li>
-                  <ActionRow href="/servicios/contable/alta-y-modificaciones-censales">
-                    Alta y modificaciones censales (Modelo 036 / 037)
-                  </ActionRow>
-                </li>
-                <li>
-                  <ActionRow href="/servicios/contable/balances-y-estados-financieros">
-                    Balance de Situación, Sumas y Saldos, y Pérdidas y Ganancias
-                  </ActionRow>
-                </li>
-                <li>
-                  <ActionRow href="/servicios/contable/conciliacion-y-control-documental">
-                    Conciliación y control documental (criterio y consistencia)
-                  </ActionRow>
-                </li>
-                <li>
-                  <ActionRow href="/servicios/contable/cuadro-de-mando-mensual">
-                    Cuadro de mando básico para seguimiento mensual
-                  </ActionRow>
-                </li>
-              </ul>
-            </motion.section>
-
-            {/* Module 2 */}
-            <motion.section
-              variants={item}
-              whileHover={{ y: -4 }}
-              className="group flex flex-col bg-white rounded-none border border-stone-100 shadow-[0_10px_24px_rgba(0,0,0,0.08)] hover:shadow-[0_14px_30px_rgba(0,0,0,0.10)] transition-shadow p-6 md:p-7"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h2 className="font-serif font-bold text-[18px] md:text-[20px] text-[#1b3022]">
-                    Calendario Tributario de Sociedades
-                  </h2>
-                  <p className="mt-2 text-[13px] text-[#333] font-sans leading-relaxed">
-                    Un sistema claro de obligaciones para evitar retrasos, recargos y requerimientos.
-                  </p>
-                </div>
-                <div className="text-stone-400 transition-colors group-hover:text-veritas-red">
-                  <Building2 size={22} strokeWidth={1.6} />
-                </div>
-              </div>
-
-              <ul className="mt-5 list-none text-[13px] leading-relaxed text-[#333] font-sans divide-y divide-stone-100">
-                <li>
-                  <ActionRow href="/servicios/contable/preparacion-y-presentacion-con-soporte-documental">
-                    Preparación y presentación con soporte documental
-                  </ActionRow>
-                </li>
-                <li>
-                  <ActionRow href="/servicios/contable/revision-de-coherencias-entre-contabilidad-y-fiscalidad">
-                    Revisión de coherencias entre contabilidad y fiscalidad
-                  </ActionRow>
-                </li>
-                <li>
-                  <ActionRow href="/servicios/contable/seguimiento-de-notificaciones-y-requerimientos">
-                    Seguimiento de notificaciones y requerimientos
-                  </ActionRow>
-                </li>
-              </ul>
-
-              <div className="mt-auto pt-6 flex flex-wrap gap-2">
-                {models.map((m) => (
-                  <React.Fragment key={m}>
-                    <Pill>Modelo {m}</Pill>
-                  </React.Fragment>
-                ))}
-              </div>
-            </motion.section>
-
-            {/* Module 3 — Cumplimiento Mercantil */}
-            <motion.section
-              variants={item}
-              whileHover={{ y: -4 }}
-              className="group flex flex-col bg-white rounded-none border border-stone-100 shadow-[0_10px_24px_rgba(0,0,0,0.08)] hover:shadow-[0_14px_30px_rgba(0,0,0,0.10)] transition-shadow p-6 md:p-7"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h2 className="font-serif font-bold text-[18px] md:text-[20px] text-[#1b3022]">
-                    Cumplimiento Mercantil (Blindaje Legal)
-                  </h2>
-                  <p className="mt-2 text-[13px] text-[#333] font-sans leading-relaxed">
-                    Cuentas Anuales y Libros Oficiales en orden: seguridad jurídica y reputación mercantil.
-                  </p>
-                </div>
-                <div className="text-stone-400 transition-colors group-hover:text-veritas-red">
-                  <Landmark size={22} strokeWidth={1.6} />
-                </div>
-              </div>
-
-              <ul className="mt-5 flex-1 list-none text-[13px] leading-relaxed text-[#333] font-sans divide-y divide-stone-100">
-                <li>
-                  <ActionRow href="/servicios/contable/registro-mercantil-cuentas-y-libros">
-                    Registro Mercantil
-                  </ActionRow>
-                </li>
-                <li>
-                  <ActionRow href="/servicios/contable/gobernanza-documental-y-evidencias">
-                    Gobernanza Documental
-                  </ActionRow>
-                </li>
-              </ul>
-            </motion.section>
-
-            {/* Module 4 — Análisis Financiero y Futuro */}
-            <motion.section
-              variants={item}
-              whileHover={{ y: -4 }}
-              className="group flex flex-col bg-white rounded-none border border-stone-100 shadow-[0_10px_24px_rgba(0,0,0,0.08)] hover:shadow-[0_14px_30px_rgba(0,0,0,0.10)] transition-shadow p-6 md:p-7"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h2 className="font-serif font-bold text-[18px] md:text-[20px] text-[#1b3022]">
-                    Análisis Financiero y Futuro
-                  </h2>
-                  <p className="mt-2 text-[13px] text-[#333] font-sans leading-relaxed">
-                    Informe Trimestral para anticipar riesgos, optimizar tesorería y tomar decisiones con contexto.
-                  </p>
-                </div>
-                <div className="text-stone-400 transition-colors group-hover:text-veritas-red">
-                  <TrendingUp size={22} strokeWidth={1.6} />
-                </div>
-              </div>
-
-              <ul className="mt-5 flex-1 list-none text-[13px] leading-relaxed text-[#333] font-sans divide-y divide-stone-100">
-                <li>
-                  <ActionRow href="/servicios/contable/lectura-de-margenes-y-costes">
-                    Lectura de márgenes y evolución de costes
-                  </ActionRow>
-                </li>
-                <li>
-                  <ActionRow href="/servicios/contable/alertas-de-desviaciones-y-escenarios">
-                    Alertas de desviaciones y escenarios
-                  </ActionRow>
-                </li>
-                <li>
-                  <ActionRow href="/servicios/contable/recomendaciones-financieras-accionables">
-                    Recomendaciones accionables (no solo números)
-                  </ActionRow>
-                </li>
-              </ul>
-            </motion.section>
-
-            {/* Inspecciones y defensa */}
-            <motion.section
-              variants={item}
-              whileHover={{ y: -4 }}
-              className="group bg-white rounded-xl border border-stone-100 shadow-sm hover:shadow-md transition-shadow p-6 md:p-7 md:col-span-2"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h2 className="font-serif font-bold text-[18px] md:text-[20px] text-[#1b3022]">
-                    Representación ante Hacienda (Socio Defensor)
-                  </h2>
-                  <p className="mt-2 text-[13px] text-[#333] font-sans leading-relaxed max-w-3xl">
-                    Defensa técnica y acompañamiento: derechos contables, documentación ordenada y estrategia para responder con solvencia.
-                  </p>
-                </div>
-                <div className="text-stone-400 transition-colors group-hover:text-veritas-red">
-                  <ShieldCheck size={22} strokeWidth={1.6} />
-                </div>
-              </div>
-
-              <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-2">
-                <ActionRow href="/servicios/contable/preparacion-y-revision-de-soportes-contables-y-mercantiles">
-                  Preparación y revisión de soportes contables y mercantiles
-                </ActionRow>
-                <ActionRow href="/servicios/contable/respuesta-a-requerimientos-y-coordinacion-documental">
-                  Respuesta a requerimientos y coordinación documental
-                </ActionRow>
-                <ActionRow href="/servicios/contable/asistencia-en-inspecciones-y-procedimientos-de-gestion">
-                  Asistencia en inspecciones y procedimientos de gestión
-                </ActionRow>
-                <ActionRow href="/servicios/contable/defensa-de-derechos-y-recursos-administrativos">
-                  Defensa de derechos y recursos administrativos
-                </ActionRow>
-              </div>
-            </motion.section>
-
-            {/* Exclusiones (acordeón) */}
-            <motion.section variants={item} className="md:col-span-2">
-              <div className="bg-white/70 rounded-none border border-stone-100 shadow-[0_10px_24px_rgba(0,0,0,0.06)] p-5 md:p-6">
-                <button
-                  type="button"
-                  onClick={() => setOpen((v) => !v)}
-                  className="w-full flex items-center justify-between gap-3 text-left"
-                  aria-expanded={open}
-                >
-                  <div>
-                    <div className="text-[10px] uppercase tracking-[0.28em] text-[#666] font-bold">
-                      Claridad Contractual
-                    </div>
-                    <div className="mt-1 font-serif font-bold text-[#1b3022] text-[16px]">
-                      Exclusiones y costes externos
-                    </div>
-                  </div>
-                  <ChevronDown className={`text-[#666] transition-transform ${open ? 'rotate-180' : ''}`} />
-                </button>
-
-                <AnimatePresence initial={false}>
-                  {open && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.22, ease: [0.2, 0.9, 0.2, 1] }}
-                      className="overflow-hidden"
-                    >
-                      <div className="pt-4 text-[12px] leading-relaxed text-[#666] font-sans space-y-3">
-                        <p>
-                          Quedan excluidas, salvo contratación expresa, auditorías, informes periciales, valoraciones independientes y
-                          actuaciones judiciales.
+            <motion.section variants={item} className="py-6 md:py-8 px-4 md:px-10 border-t-2 border-stone-200">
+              <div className="text-[10px] uppercase tracking-[0.28em] text-stone-500 font-bold">Claridad Contractual</div>
+              <div className="mt-1 font-serif font-bold text-stone-900 text-lg md:text-2xl">Exclusiones y costes externos</div>
+              <div className="mt-4 text-[13px] md:text-sm leading-snug text-stone-600 font-sans space-y-3">
+                <p>
+                  Quedan excluidas, salvo contratación expresa, auditorías, informes periciales, valoraciones independientes y actuaciones
+                  judiciales.
                         </p>
                         <p>
                           Los gastos de registro, tasas y aranceles (p.ej. Registro Mercantil) se consideran costes externos y se informarán
                           previamente cuando aplique.
                         </p>
-                        <p>
-                          En cualquier ampliación de alcance, le indicaremos el coste y el resultado esperado antes de iniciar la actuación.
-                        </p>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                <p>En cualquier ampliación de alcance, le indicaremos el coste y el resultado esperado antes de iniciar la actuación.</p>
               </div>
             </motion.section>
           </motion.div>

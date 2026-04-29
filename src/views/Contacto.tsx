@@ -4,6 +4,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, ExternalLink } from 'lucide-react';
 
+function WhatsAppIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.5 0 .2 5.3.2 11.86c0 2.1.55 4.15 1.6 5.96L0 24l6.35-1.66a11.8 11.8 0 0 0 5.7 1.46h.01c6.56 0 11.86-5.3 11.86-11.86 0-3.16-1.23-6.13-3.4-8.46Zm-8.46 18.2h-.01a9.86 9.86 0 0 1-5.03-1.38l-.36-.21-3.77.98 1.01-3.67-.24-.38a9.83 9.83 0 0 1-1.5-5.16c0-5.46 4.45-9.9 9.93-9.9 2.65 0 5.14 1.03 7.01 2.9a9.86 9.86 0 0 1 2.9 7.01c0 5.47-4.45 9.9-9.94 9.9Zm5.45-7.41c-.3-.15-1.77-.87-2.05-.97-.28-.1-.48-.15-.68.15-.2.3-.78.97-.96 1.17-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.79-1.68-2.09-.18-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.68-1.64-.93-2.25-.24-.58-.49-.5-.68-.5l-.58-.01c-.2 0-.52.07-.8.37-.28.3-1.05 1.03-1.05 2.5 0 1.47 1.08 2.9 1.23 3.1.15.2 2.12 3.24 5.14 4.54.72.31 1.28.5 1.72.64.72.23 1.37.2 1.89.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.08-.12-.28-.2-.58-.35Z" />
+    </svg>
+  );
+}
+
 const ADDRESS = 'Camino de Alcalá 52, 28816 Camarma de Esteruelas (Madrid)';
 const HOURS = 'Lunes a Jueves: 09:00 - 18:00 | Viernes: 09:00 - 15:00';
 const BUSINESS_QUERY = 'Camarlex Veritas Abogados, Camarma de Esteruelas';
@@ -35,31 +43,27 @@ export default function Contacto() {
             >
               <h2 className="font-serif text-[18px] md:text-[20px] font-bold text-veritas-green">Solicite una Cita</h2>
               <p className="mt-2 text-[12px] text-[#777] leading-relaxed max-w-md">
-                Cuéntenos brevemente su caso. Le responderemos con discreción y rapidez.
+                Para una atención inmediata, puede contactarnos directamente por teléfono o WhatsApp.
               </p>
 
-              <form className="mt-8 flex flex-col gap-4">
-                <input
-                  type="text"
-                  placeholder="Nombre Completo"
-                  className="border border-gray-200 py-3 px-3 text-[13px] outline-none bg-transparent focus:border-[#1b3022] transition-colors rounded-none"
-                />
-                <input
-                  type="email"
-                  placeholder="Correo Electrónico"
-                  className="border border-gray-200 py-3 px-3 text-[13px] outline-none bg-transparent focus:border-[#1b3022] transition-colors rounded-none"
-                />
-                <textarea
-                  placeholder="Su Mensaje"
-                  className="border border-gray-200 py-3 px-3 text-[13px] outline-none bg-transparent focus:border-[#1b3022] transition-colors h-[140px] resize-none rounded-none"
-                />
-                <button
-                  type="submit"
-                  className="mt-2 bg-[#1b3022] text-white py-4 px-6 text-[11px] uppercase tracking-[0.25em] font-bold hover:bg-veritas-red transition-all duration-300 ease-in-out cursor-pointer rounded-none border border-white/10 w-full"
+              <div className="mt-6 flex flex-col sm:flex-row gap-3">
+                <a
+                  href="tel:+34918866694"
+                  className="flex-1 flex items-center justify-center gap-2.5 py-4 px-4 bg-[#1a2e23] text-white text-[11px] font-bold uppercase tracking-[0.2em] rounded-none hover:brightness-110 transition-all"
                 >
-                  Enviar Solicitud
-                </button>
-              </form>
+                  <Phone size={15} strokeWidth={2} />
+                  Llamar ahora
+                </a>
+                <a
+                  href="https://wa.me/34639234228"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex-1 flex items-center justify-center gap-2.5 py-4 px-4 bg-white border border-black text-black text-[11px] font-bold uppercase tracking-[0.2em] rounded-none hover:bg-stone-50 transition-all"
+                >
+                  <WhatsAppIcon size={15} />
+                  Contactar por WhatsApp
+                </a>
+              </div>
             </motion.div>
 
             <motion.div
@@ -72,7 +76,7 @@ export default function Contacto() {
                 Información Institucional
               </h2>
               <div className="mt-8 space-y-5 text-[13px] text-veritas-gray">
-                <InfoRow icon={<Phone size={18} />} title="Teléfono" value="918866694" />
+                <InfoRow icon={<Phone size={18} />} title="Teléfono" value="918 86 66 94" />
                 <InfoRow icon={<Mail size={18} />} title="Email" value="info@lngrupoveritas.es" />
                 <InfoRow icon={<MapPin size={18} />} title="Dirección" value={ADDRESS} />
                 <InfoRow icon={<Clock size={18} />} title="Horario de Atención" value={HOURS} />
@@ -86,7 +90,7 @@ export default function Contacto() {
                   <p className="mt-2 text-[12px] text-[#777] leading-relaxed max-w-md">{ADDRESS}</p>
                   <div className="mt-4 h-[240px] border border-gray-200 rounded-none bg-white relative overflow-hidden">
                     <iframe
-                      title="Mapa - Camarlex Veritas Abogados"
+                      title="Mapa - LN Grupo Veritas"
                       src={embedSrc}
                       className="absolute inset-0 w-full h-full"
                       loading="lazy"

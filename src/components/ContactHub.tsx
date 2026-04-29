@@ -21,13 +21,11 @@ function WhatsAppIcon({ size = 18 }: { size?: number }) {
 type Props = {
   phoneHref?: string;
   whatsappHref?: string;
-  appointmentHref?: string;
 };
 
 export default function ContactHub({
   phoneHref = 'tel:918866694',
-  whatsappHref = 'https://wa.me/34918866694',
-  appointmentHref = '#contacto',
+  whatsappHref = 'https://wa.me/34639234228',
 }: Props) {
   const [open, setOpen] = useState(false);
   const popoverRef = useRef<HTMLDivElement | null>(null);
@@ -116,7 +114,7 @@ export default function ContactHub({
                 </div>
               </div>
 
-              <div className="p-4 grid gap-3">
+              <div className="p-4 grid gap-2.5">
                 <a
                   href={whatsappHref}
                   target="_blank"
@@ -132,13 +130,6 @@ export default function ContactHub({
                 >
                   <Phone size={18} />
                   Llamar
-                </a>
-                <a
-                  href={appointmentHref}
-                  onClick={() => setOpen(false)}
-                  className="w-full flex items-center justify-center py-3 rounded-none bg-veritas-cream text-veritas-green text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-white transition border border-[#1b3022]/20"
-                >
-                  Formulario de cita
                 </a>
               </div>
             </motion.div>

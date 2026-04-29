@@ -14,7 +14,7 @@ const ADDRESS = 'Camino de Alcalá 52, 28816 Camarma de Esteruelas (Madrid)';
 export default function HomePage() {
   return (
     <>
-      <main className="w-full max-w-full overflow-x-hidden grid grid-cols-1 lg:grid-cols-[1fr_364px] min-h-[593px] pb-32 md:pb-[76px] lg:pb-0 lg:max-w-7xl lg:mx-auto">
+      <main className="w-full max-w-full overflow-x-hidden grid grid-cols-1 lg:grid-cols-[1fr_364px] h-auto pb-0 lg:max-w-7xl lg:mx-auto">
         <div className="flex flex-col border-r border-gray-100">
           <section className="relative overflow-x-hidden py-16 md:py-20 flex items-center border-b border-veritas-green/10">
             <div className="absolute inset-0 z-0">
@@ -36,7 +36,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.12 }}
-              className="mx-4 sm:mx-6 md:mx-0 md:ml-16 max-w-[620px] bg-white/90 backdrop-blur-md p-6 sm:p-8 md:p-10 border-l-4 border-veritas-green shadow-xl relative z-10"
+              className="mx-0 md:ml-16 max-w-full md:max-w-[620px] bg-white/90 backdrop-blur-md p-6 sm:p-8 md:p-10 border-l-4 border-veritas-green shadow-xl relative z-10"
             >
               <div className="space-y-6 text-veritas-gray leading-relaxed text-[13px] font-sans font-normal">
                 <p>
@@ -68,9 +68,6 @@ export default function HomePage() {
                   Esteruelas.
                 </p>
               </div>
-              <button className="bg-veritas-green text-white px-10 py-3.5 mt-4 text-[11px] uppercase tracking-[0.2em] font-bold hover:bg-veritas-red transition-all cursor-pointer shadow-md rounded-none border border-white/10">
-                Conócenos
-              </button>
             </motion.div>
           </section>
 
@@ -117,7 +114,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="p-8 flex-grow">
+          <div className="p-6 md:p-8">
             <div className="flex flex-col gap-3 lg:sticky lg:top-[160px]">
               <h2 className="font-serif text-[18px] font-bold text-veritas-green">Información Institucional</h2>
 

@@ -143,14 +143,14 @@ function ActionRow({ href, children }: { href: string; children: React.ReactNode
   return (
     <Link
       href={href}
-      className="group flex items-center justify-between py-3 px-2 md:px-0 hover:bg-stone-50 transition-colors cursor-pointer"
+      className="group flex items-center justify-between py-2 px-2 md:px-0 border-t border-stone-100 first:border-t-0 hover:bg-stone-50 transition-colors cursor-pointer"
     >
-      <span className="text-[13px] leading-relaxed text-stone-700 font-sans transition-transform duration-200 group-hover:translate-x-1">
+      <span className="text-xs md:text-sm leading-snug text-stone-700 font-sans transition-transform duration-200 group-hover:translate-x-1">
         {children}
       </span>
       <ChevronRight
-        size={16}
-        className="shrink-0 text-stone-400 transition-colors duration-200 group-hover:text-veritas-red group-hover:translate-x-0.5"
+        size={12}
+        className="shrink-0 ml-3 text-stone-400 transition-colors duration-200 group-hover:text-veritas-red group-hover:translate-x-0.5"
       />
     </Link>
   );
@@ -161,27 +161,29 @@ function ServiceMatrixRow({
   subtitle,
   Icon,
   items,
+  isFirst,
 }: {
   title: string;
   subtitle: string;
   Icon: React.ComponentType<{ size?: number; strokeWidth?: number; className?: string }>;
   items: { label: string; href: string }[];
+  isFirst: boolean;
 }) {
   return (
     <motion.section
       variants={item}
-      className="py-6 md:py-8 px-6 md:px-10"
+      className={`py-6 md:py-8 px-4 md:px-10 ${isFirst ? '' : 'border-t-2 border-stone-200'}`}
     >
       <div className="flex flex-col gap-5">
         <div className="pb-3 border-b border-stone-300">
           <div className="flex items-center gap-3 text-stone-900">
             <Icon size={18} strokeWidth={1.7} className="text-veritas-green/70" />
-            <h2 className="font-serif text-2xl font-bold">{title}</h2>
+            <h2 className="font-serif text-lg md:text-2xl font-bold mb-1">{title}</h2>
           </div>
-          <p className="mt-1 text-sm text-stone-600 font-sans leading-relaxed">{subtitle}</p>
+          <p className="mt-1 text-[13px] md:text-sm text-stone-600 font-sans leading-snug md:leading-relaxed">{subtitle}</p>
         </div>
 
-        <div className="divide-y divide-stone-200">
+        <div>
           {items.map((it) => (
             <ActionRow key={it.href} href={it.href}>
               {it.label}
@@ -216,15 +218,16 @@ export default function ServiciosJuridico() {
             variants={container}
             initial="hidden"
             animate="show"
-            className="mt-10 md:mt-12 bg-white rounded-none border border-stone-200 overflow-hidden divide-y divide-stone-200"
+            className="mt-10 md:mt-12 bg-white rounded-none border border-stone-200 overflow-hidden"
           >
-            {legalAreas.map((area) => (
+            {legalAreas.map((area, idx) => (
               <ServiceMatrixRow
                 key={area.title}
                 title={area.title}
                 subtitle={area.subtitle}
                 Icon={area.Icon}
                 items={[...area.items]}
+                isFirst={idx === 0}
               />
             ))}
           </motion.div>

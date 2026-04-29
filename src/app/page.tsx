@@ -100,7 +100,7 @@ export default function HomePage() {
         </div>
 
         <aside className="bg-white flex flex-col">
-          <div className="h-[300px] relative overflow-hidden bg-veritas-red">
+          <div className="h-[300px] relative overflow-hidden bg-[#8b1a1a]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="https://images.unsplash.com/photo-1556157382-9793f77543c2?auto=format&fit=crop&q=80&w=400"
@@ -108,9 +108,22 @@ export default function HomePage() {
               alt="Luis Ángel Zurro"
               referrerPolicy="no-referrer"
             />
-            <div className="absolute bottom-0 left-0 right-0 bg-veritas-red p-4 text-white">
-              <div className="font-serif text-lg font-bold">Luis Ángel Zurro</div>
-              <div className="text-[11px] opacity-80 uppercase tracking-widest">Socio Director</div>
+            <div className="absolute bottom-0 left-0 right-0 bg-[#8b1a1a] p-3 sm:p-4 text-white">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                <div className="min-w-0">
+                  <div className="font-serif text-[17px] sm:text-[18px] font-bold leading-tight truncate">
+                    Luis Ángel Zurro
+                  </div>
+                  <div className="mt-1 text-[11px] opacity-80 tracking-widest font-sans">Socio Director</div>
+                </div>
+
+                <div className="min-w-0 sm:border-l sm:border-white/20 sm:pl-6">
+                  <div className="font-serif text-[17px] sm:text-[18px] font-bold leading-tight truncate">
+                    Noelia Furones
+                  </div>
+                  <div className="mt-1 text-[11px] opacity-80 tracking-widest font-sans">Socia Directora</div>
+                </div>
+              </div>
             </div>
           </div>
 

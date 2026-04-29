@@ -72,7 +72,7 @@ export default function AppHeader() {
                 aria-haspopup="menu"
                 aria-expanded={isServiciosOpen}
               >
-                Servicios{' '}
+                SERVICIOS{' '}
                 <ChevronDown
                   size={12}
                   className={`transition-transform duration-200 md:transition-none ${

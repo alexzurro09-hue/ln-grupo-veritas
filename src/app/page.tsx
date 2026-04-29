@@ -14,9 +14,9 @@ const ADDRESS = 'Camino de Alcalá 52, 28816 Camarma de Esteruelas (Madrid)';
 export default function HomePage() {
   return (
     <>
-      <main className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_364px] min-h-[593px] pb-32 md:pb-[76px] lg:pb-0">
+      <main className="w-full max-w-full overflow-x-hidden grid grid-cols-1 lg:grid-cols-[1fr_364px] min-h-[593px] pb-32 md:pb-[76px] lg:pb-0 lg:max-w-7xl lg:mx-auto">
         <div className="flex flex-col border-r border-gray-100">
-          <section className="relative py-16 md:py-20 flex items-center border-b border-veritas-green/10">
+          <section className="relative overflow-x-hidden py-16 md:py-20 flex items-center border-b border-veritas-green/10">
             <div className="absolute inset-0 z-0">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -28,7 +28,7 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-white/75" />
             </div>
 
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 font-serif text-[140px] font-black text-veritas-green/[0.03] rotate-[-5deg] pointer-events-none select-none z-0">
+            <div className="hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 font-serif text-[140px] font-black text-veritas-green/[0.03] rotate-[-5deg] pointer-events-none select-none z-0">
               VERITAS
             </div>
 
@@ -36,7 +36,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.12 }}
-              className="ml-10 md:ml-15 max-w-[620px] bg-white/90 backdrop-blur-md p-8 md:p-10 border-l-4 border-veritas-green shadow-xl relative z-10"
+              className="mx-4 sm:mx-6 md:mx-0 md:ml-16 max-w-[620px] bg-white/90 backdrop-blur-md p-6 sm:p-8 md:p-10 border-l-4 border-veritas-green shadow-xl relative z-10"
             >
               <div className="space-y-6 text-veritas-gray leading-relaxed text-[13px] font-sans font-normal">
                 <p>
